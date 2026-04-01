@@ -1,12 +1,25 @@
 import { useState } from 'react';
-import { Link, usePage } from '@inertiajs/react';
+import { Link, usePage, router } from '@inertiajs/react';
+import Toast from '@/Components/Toast';
 
 export default function AuthenticatedLayout({ user, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
     const isClient = user.role === 'client';
 
+    /**
+     * Dismiss flash message by visiting a neutral route
+     */
+    const dismissToast = () => {
+        router.visit(window.location.pathname, {
+            preserveState: true,
+            preserveScroll: true,
+        });
+    };
+
     return (
         <div className="min-h-screen bg-gray-50">
+            {/* Toast Notifications */}
+            <Toast onDismiss={dismissToast} />
 
             {/* ── TOP NAV ─────────────────────────────────────────── */}
             <nav className="bg-white border-b border-gray-100 shadow-sm">

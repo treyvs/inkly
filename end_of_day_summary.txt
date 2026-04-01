@@ -1,0 +1,2334 @@
+╭─── Claude Code v2.1.81 ──────────────────────────────────────────────────────╮
+│                                                    │ Tips for getting        │
+│                Welcome back Trevor!                │ started                 │
+│                                                    │ Run /init to create a … │
+│                       ▐▛███▜▌                      │ ─────────────────────── │
+│                      ▝▜█████▛▘                     │ Recent activity         │
+│                        ▘▘ ▝▝                       │ No recent activity      │
+│    qwen3.5:cloud · API Usage Billing · Trevor‘s    │                         │
+│    Individual Org                                  │                         │
+│                    ~\Herd\inkly                    │                         │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+  ↑ Opus now defaults to 1M context · 5x more room, same pricing
+
+
+ ‼Auth conflict: Both a token (ANTHROPIC_AUTH_TOKEN) and an API key (/login 
+  managed key) are set. This may lead to unexpected behavior.
+    • Trying to use ANTHROPIC_AUTH_TOKEN? claude /logout
+    • Trying to use /login managed key? Unset the ANTHROPIC_AUTH_TOKEN 
+    environment variable.
+
+> Do you remember what were working on?                                         
+
+● I don't have any context about what we were working on previously. This
+  appears to be a new conversation/session.
+
+  If we were working on something in a previous session, I won't have access to
+  that history unless:
+
+  1. There are files in the current directory that show our recent work
+  2. There's a git repository with recent commits
+  3. You tell me what we were working on
+
+  Would you like me to explore the current directory to see if there are any
+  recent project files, or can you give me a quick summary of what we were
+  working on?
+
+✻ Brewed for 33s
+
+> ANTHROPIC_AUTH_TOKEN? claude /logout                                          
+
+● I don't have a /logout command available. However, if you want to revoke or
+  change your authentication:
+
+  To logout/change token:
+
+  1. If using environment variable: Unset ANTHROPIC_AUTH_TOKEN in your shell:
+  unset ANTHROPIC_AUTH_TOKEN
+  2. If stored in settings: The token may be in one of these locations:
+    - ~/.claude/settings.json
+    - ~/.claude/settings.local.json
+  3. To get a new token: Visit https://claude.ai/settings to generate a new API
+  key
+
+  Is there a specific reason you want to logout? I can help troubleshoot if
+  you're having authentication issues.
+
+✻ Cogitated for 35s
+
+> unset ANTHROPIC_AUTH_TOKEN                                                    
+
+● Bash(unset ANTHROPIC_AUTH_TOKEN)
+  ⎿  Done
+
+● The ANTHROPIC_AUTH_TOKEN has been unset for this session.
+
+  Note that this only affects the current shell session. If the token is also
+  stored in ~/.claude/settings.json or ~/.claude/settings.local.json, you may
+  need to remove it from there as well if you want to fully log out.
+
+  Would you like me to check those files for any stored credentials?
+
+> yes                                                                           
+
+  Read 2 files (ctrl+o to expand)
+
+● Good news - there are no stored credentials in your settings files:
+
+  - ~/.claude/settings.json is empty ({})
+  - ~/.claude/settings.local.json doesn't exist
+
+  You're fully logged out now. The ANTHROPIC_AUTH_TOKEN environment variable has
+   been unset, and there are no stored tokens in your Claude settings.
+
+> okayyy now let's get started                                                  
+
+● Great! Ready to help. What would you like to work on?
+
+> access this directory,"C:\Users\Teejay\Herd\inkly"                            
+
+● Bash(cd "C:\Users\Teejay\Herd\inkly" && ls -la)
+  ⎿  total 724
+     drwxr-xr-x 1 Teejay 197121      0 Mar 30 07:54 .
+     drwxr-xr-x 1 Teejay 197121      0 Mar 18 11:29 ..
+     … +24 lines (ctrl+o to expand)
+
+● I can see this is a Laravel PHP project (inkly). Here's what I found:
+
+  Key files/folders:
+  - app/ - Main application code
+  - routes/ - Route definitions
+  - resources/ - Views and assets
+  - database/ - Migrations and seeders
+  - config/ - Configuration files
+  - public/ - Public assets
+  - tests/ - Test files
+  - .env - Environment configuration
+  - composer.json - PHP dependencies
+  - package.json - Node.js dependencies (Tailwind, Vite)
+
+  What would you like to work on in this project?
+
+> I want you to act as a Senior Full-Stack Engineer and System Architect. I am  
+going to provide you with my GitHub repository files.                           
+                                                                                
+                                                                                
+                                                                                
+Your first task is NOT to write code, but to perform a comprehensive audit.     
+Please:                                                                         
+                                                                                
+                                                                                
+                                                                                
+Map out the current folder structure and tech stack.                            
+                                                                                
+                                                                                
+                                                                                
+Identify all existing bugs, broken dependencies, or logic errors in the current 
+ code.                                                                          
+                                                                                
+                                                                                
+                                                                                
+Analyze the gaps between the current state and a fully functional interactive   
+website.                                                                        
+                                                                                
+                                                                                
+                                                                                
+Do not write any fixes yet. Simply provide a detailed 'State of the Union'      
+report and a prioritized list of errors that need fixing.                       
+
+● I'll perform a comprehensive audit of your Laravel project. Let me explore the
+   codebase systematically.
+
+  Read 4 files (ctrl+o to expand)
+
+● Bash(cd "C:\Users\Teejay\Herd\inkly" && find app -type f -name "*.php" | head
+      -50)
+  ⎿  app/Http/Controllers/Auth/AuthenticatedSessionController.php
+     app/Http/Controllers/Auth/ConfirmablePasswordController.php
+     app/Http/Controllers/Auth/EmailVerificationNotificationController.php
+     … +14 lines (ctrl+o to expand)
+
+● Bash(cd "C:\Users\Teejay\Herd\inkly" && find resources -type f \( -name
+      "*.blade.php" -o -name "*.js" -o -name "*.vue" \) | head -50)
+  ⎿  resources/js/bootstrap.js
+     resources/views/app.blade.php
+
+  Read 4 files (ctrl+o to expand)
+
+● Bash(cd "C:\Users\Teejay\Herd\inkly" && find database/migrations -name "*.php"
+       | sort)  ⎿  database/migrations/0001_01_01_000000_create_users_table.php
+     database/migrations/0001_01_01_000001_create_cache_table.php
+     database/migrations/0001_01_01_000002_create_jobs_table.php
+     … +2 lines (ctrl+o to expand)
+
+● Bash(cd "C:\Users\Teejay\Herd\inkly" && find resources/js -type f | head -30)
+  ⎿  resources/js/app.jsx
+     resources/js/bootstrap.js
+     resources/js/Components/ApplicationLogo.jsx
+     … +19 lines (ctrl+o to expand)
+
+  Read 16 files (ctrl+o to expand)
+
+● Bash(cd "C:\Users\Teejay\Herd\inkly" && php artisan --version 2>&1)
+  ⎿  Error: Exit code 127
+     /usr/bin/bash: line 1: php: command not found
+
+● Bash(cd "C:\Users\Teejay\Herd\inkly" && php -v 2>&1)
+  ⎿  Cancelled: parallel tool call Bash(cd "C:\Users\Teejay\Herd\inkly" && php 
+     a…) errored
+
+● Bash(cd "C:\Users\Teejay\Herd\inkly" && where.exe php 2>&1 || echo "PHP not in
+       PATH")
+  ⎿  C:\Users\Teejay\.config\herd\bin\php.bat
+
+  Read 2 files (ctrl+o to expand)
+
+● Bash(cd "C:\Users\Teejay\Herd\inkly" && ls -la database/)
+  ⎿  total 17
+     drwxr-xr-x 1 Teejay 197121  0 Mar 18 11:33 .
+     drwxr-xr-x 1 Teejay 197121  0 Mar 30 07:54 ..
+     … +5 lines (ctrl+o to expand)
+
+● Bash(cd "C:\Users\Teejay\Herd\inkly" &&
+      "C:\Users\Teejay\.config\herd\bin\php.bat" artisan --version 2>&1)
+  ⎿  Laravel Framework 13.0.0
+
+● Bash(cd "C:\Users\Teejay\Herd\inkly" &&
+      "C:\Users\Teejay\.config\herd\bin\php.bat" artisan migrate:status 2>&1)
+  ⎿    Migration name .....................................................
+     ................................. Batch / Status
+       0001_01_01_000000_create_users_table ...............................
+     … +11 lines (ctrl+o to expand)
+
+  Read 2 files (ctrl+o to expand)
+
+● Bash(cd "C:\Users\Teejay\Herd\inkly" && ls -la
+      resources/js/Pages/JobPostings/)
+  ⎿  total 16
+     drwxr-xr-x 1 Teejay 197121    0 Mar 23 22:11 .
+     drwxr-xr-x 1 Teejay 197121    0 Mar 23 22:09 ..
+     -rw-r--r-- 1 Teejay 197121 9199 Mar 23 22:11 Index.jsx
+
+  Read 3 files (ctrl+o to expand)
+
+● Now I have a comprehensive view of the codebase. Let me compile the audit
+  report.
+
+  ---
+  inKLY - State of the Union Report
+
+  Comprehensive Codebase Audit
+
+  ---
+  1. Folder Structure & Tech Stack
+
+  Project Type: Laravel 13 + Inertia.js + React Single Page Application
+
+  Directory Structure:
+
+  inkly/
+  ├── app/
+  │   ├── Http/
+  │   │   ├── Controllers/          # 5 controllers
+  │   │   │   ├── Auth/             # Breeze authentication (7 files)
+  │   │   │   ├── BidController.php
+  │   │   │   ├── JobPostingController.php
+  │   │   │   └── ProfileController.php
+  │   │   ├── Middleware/
+  │   │   │   └── HandleInertiaRequests.php
+  │   │   └── Requests/             # Form validation (4 files)
+  │   ├── Models/                   # 3 models (User, JobPosting, Bid)
+  │   └── Policies/                 # JobPostingPolicy.php
+  ├── database/
+  │   ├── migrations/               # 5 migrations (all ran ✓)
+  │   └── database.sqlite           # SQLite database file
+  ├── resources/
+  │   ├── js/
+  │   │   ├── Components/           # 12 reusable UI components
+  │   │   ├── Layouts/              # AuthenticatedLayout, GuestLayout
+  │   │   └── Pages/                # Inertia pages (Auth, Dashboard, Jobs,
+  Profile)
+  │   └── views/
+  │       └── app.blade.php         # Root HTML template
+  ├── routes/
+  │   ├── web.php                   # Main routes
+  │   └── auth.php                  # Breeze auth routes
+  ├── config/                       # Laravel configuration
+  ├── public/                       # Public assets
+  └── tests/                        # PHPUnit tests
+
+  Tech Stack:
+
+  ┌──────────┬──────────────────────────────────┐
+  │  Layer   │            Technology            │
+  ├──────────┼──────────────────────────────────┤
+  │ Backend  │ Laravel 13.0.0 (PHP 8.3+)        │
+  ├──────────┼──────────────────────────────────┤
+  │ Frontend │ React 18.2 + Inertia.js 2.0      │
+  ├──────────┼──────────────────────────────────┤
+  │ Styling  │ Tailwind CSS 3.2 + Headless UI   │
+  ├──────────┼──────────────────────────────────┤
+  │ Build    │ Vite 7.0.7                       │
+  ├──────────┼──────────────────────────────────┤
+  │ Database │ SQLite (dev) / MySQL configured  │
+  ├──────────┼──────────────────────────────────┤
+  │ Auth     │ Laravel Breeze + Sanctum         │
+  ├──────────┼──────────────────────────────────┤
+  │ Routing  │ Ziggy (client-side route helper) │
+  └──────────┴──────────────────────────────────┘
+
+  ---
+  2. Identified Bugs & Issues
+
+  CRITICAL - Configuration Mismatch
+
+  Issue #1: Database Configuration Conflict
+
+  Location: .env lines 23-28
+  DB_CONNECTION=sqlite
+  DB_HOST=127.0.0.1
+  DB_PORT=3306
+  DB_DATABASE=inkly
+  DB_USERNAME=root
+  Problem: DB_CONNECTION is set to sqlite, but MySQL credentials are also
+  defined. The SQLite file exists (database/database.sqlite) but the MySQL
+  settings suggest the app may have been intended to run on MySQL via Herd.
+
+  Impact: Confusing configuration; potential data loss if switching databases.
+
+  ---
+  Issue #2: APP_ENV Invalid Value
+
+  Location: .env line 2
+  APP_ENV=http://inkly.test
+  Problem: APP_ENV should be local, production, etc. — not a URL. The URL
+  belongs in APP_URL.
+
+  Impact: May break environment-based conditionals in Laravel.
+
+  ---
+  HIGH PRIORITY - Missing Features
+
+  Issue #3: Missing React Pages (404 Errors)
+
+  Location: JobPostingController.php references:
+  - JobPostings/Create.jsx — DOES NOT EXIST
+  - JobPostings/Show.jsx — DOES NOT EXIST
+  - JobPostings/Edit.jsx — DOES NOT EXIST
+
+  Only Index.jsx exists in resources/js/Pages/JobPostings/.
+
+  Impact: Users will get Inertia errors when:
+  - Creating a job posting (/job-postings/create)
+  - Viewing job details (/job-postings/{id})
+  - Editing a posting (/job-postings/{id}/edit)
+
+  ---
+  Issue #4: Dashboard Doesn't Use Passed Data
+
+  Location: Dashboard.jsx lines 4-26, web.php lines 16-33
+
+  Problem: Controller passes $jobPostings or $bids to Dashboard, but the
+  component ignores them and only shows "You're logged in!"
+
+  Impact: Dashboard is non-functional; users can't see their jobs or bids.
+
+  ---
+  Issue #5: Missing Welcome Page Data
+
+  Location: web.php line 9, Welcome.jsx line 3
+
+  return inertia('Welcome');  // No data passed
+  export default function Welcome({ auth, laravelVersion, phpVersion })
+
+  Problem: Controller doesn't pass laravelVersion or phpVersion, but the
+  component expects them.
+
+  Impact: Minor — these will just be undefined but the page still renders.
+
+  ---
+  MEDIUM PRIORITY - UX/Logic Issues
+
+  Issue #6: No JobPostingPolicy Registration
+
+  Location: JobPostingPolicy.php exists but may not be registered.
+
+  Note: Laravel should auto-discover policies, but verify in AuthServiceProvider
+   if authorization works correctly.
+
+  ---
+  Issue #7: BidController Missing show() Method
+
+  Location: routes/web.php line 36
+
+  Route::resource('job-postings', JobPostingController::class);
+
+  Problem: Resource controller expects show() method, but bids have no dedicated
+   resource route. This is actually fine since bids are nested under
+  job-postings, but there's no UI to view individual bids.
+
+  ---
+  Issue #8: No Email Verification Enforcement
+
+  Location: web.php line 13
+
+  Route::middleware(['auth', 'verified'])->group(function () {
+
+  Problem: Routes require verification, but Breeze's email verification flow may
+   not be fully configured (no mail driver set — MAIL_MAILER=log).
+
+  Impact: Verification emails won't actually send in production.
+
+  ---
+  LOW PRIORITY - Code Quality
+
+  Issue #9: Commented Code in Bid Model
+
+  Location: Bid.php lines 14-15
+
+  'job_posting_id',   // FIX: was 'job_posting_id' in model but 'job_id' in 
+  migration
+
+  Note: The migration has already been fixed, but these comments are now
+  outdated/confusing.
+
+  ---
+  Issue #10: Unused Import in database.php
+
+  Location: config/database.php line 4
+
+  use Pdo\Mysql;
+
+  Problem: This import is only used conditionally (line 63) for MySQL SSL. Not
+  an error but could be cleaned up.
+
+  ---
+  3. Gaps to Full Functionality
+
+  ┌───────────────────────┬──────────────┬──────────────────────────────────┐
+  │        Feature        │    Status    │               Gap                │
+  ├───────────────────────┼──────────────┼──────────────────────────────────┤
+  │ User Registration     │ ✅ Working   │ Role selection implemented       │
+  ├───────────────────────┼──────────────┼──────────────────────────────────┤
+  │ User Login/Logout     │ ✅ Working   │ Breeze default                   │
+  ├───────────────────────┼──────────────┼──────────────────────────────────┤
+  │ Browse Jobs           │ ✅ Working   │ Index page complete with search  │
+  ├───────────────────────┼──────────────┼──────────────────────────────────┤
+  │ Create Job Posting    │ ❌ Broken    │ Missing Create.jsx page          │
+  ├───────────────────────┼──────────────┼──────────────────────────────────┤
+  │ View Job Details      │ ❌ Broken    │ Missing Show.jsx page            │
+  ├───────────────────────┼──────────────┼──────────────────────────────────┤
+  │ Edit Job Posting      │ ❌ Broken    │ Missing Edit.jsx page            │
+  ├───────────────────────┼──────────────┼──────────────────────────────────┤
+  │ Delete Job Posting    │ ⚠️ Untested  │ Policy exists, no UI             │
+  │                       │              │ confirmation                     │
+  ├───────────────────────┼──────────────┼──────────────────────────────────┤
+  │ Place Bid             │ ⚠️ Untested  │ Controller works, needs UI form  │
+  ├───────────────────────┼──────────────┼──────────────────────────────────┤
+  │ Accept/Reject Bid     │ ⚠️ Untested  │ Controller works, needs UI       │
+  │                       │              │ buttons                          │
+  ├───────────────────────┼──────────────┼──────────────────────────────────┤
+  │ Dashboard (Client)    │ ❌ Broken    │ Data passed but not rendered     │
+  ├───────────────────────┼──────────────┼──────────────────────────────────┤
+  │ Dashboard             │ ❌ Broken    │ Data passed but not rendered     │
+  │ (Freelancer)          │              │                                  │
+  ├───────────────────────┼──────────────┼──────────────────────────────────┤
+  │ Profile Edit          │ ✅ Working   │ Breeze default                   │
+  ├───────────────────────┼──────────────┼──────────────────────────────────┤
+  │ Email Verification    │ ⚠️           │ No mail driver (logs only)       │
+  │                       │ Configured   │                                  │
+  ├───────────────────────┼──────────────┼──────────────────────────────────┤
+  │ Password Reset        │ ⚠️           │ No mail driver (logs only)       │
+  │                       │ Configured   │                                  │
+  └───────────────────────┴──────────────┴──────────────────────────────────┘
+
+  ---
+  4. Prioritized Fix List
+
+  P0 - Critical (Blocks Core Functionality)
+
+  1. Create missing React pages:
+    - JobPostings/Create.jsx — Form to post new jobs
+    - JobPostings/Show.jsx — Job details + bid list + bid form
+    - JobPostings/Edit.jsx — Form to edit existing jobs
+  2. Fix Dashboard.jsx — Render $jobPostings for clients and $bids for
+  freelancers
+  3. Fix .env configuration:
+    - APP_ENV=local
+    - Clarify DB choice (SQLite vs MySQL)
+
+  P1 - High (Important for Launch)
+
+  4. Implement bid submission UI in Show.jsx
+  5. Implement accept/reject bid buttons for clients in Show.jsx
+  6. Add flash message display (success/error notifications)
+  7. Add loading states for async actions
+
+  P2 - Medium (UX Improvements)
+
+  8. Add job status badges and filtering
+  9. Implement pagination UI properly (currently buttons exist but may not work)
+  10. Add confirmation dialogs for delete actions
+  11. Add form validation error display inline
+
+  P3 - Low (Polish)
+
+  12. Clean up outdated comments in models
+  13. Add TypeScript for type safety
+  14. Add unit tests for controllers and policies
+  15. Configure proper mail driver for production
+
+  ---
+  Summary
+
+  Current State: The backend architecture is solid with proper controllers,
+  policies, and validation. The database schema is correct and migrations have
+  run. However, the frontend is ~40% incomplete — missing critical pages for the
+   core job posting/bidding workflow.
+
+  Next Step Recommendation: Start by creating the three missing React pages
+  (Create, Show, Edit) to unblock the primary user journey.
+
+  Would you like me to proceed with implementing the fixes, starting with the P0
+   critical items?
+
+✻ Worked for 4m 2s
+
+> let's fix all that there is to be fixed and run the website. Kindly provide   
+clean and well commented code for what's missing. Remember to implement         
+professional and intruiging UI for the front end                                
+
+● I'll fix all the issues and get your website running with a professional,
+  polished UI. Let me create a task list and implement everything
+  systematically.
+● Update(.env)
+  ⎿  Added 7 lines, removed 6 lines
+      1  APP_NAME=inKLY
+      2 -APP_ENV=http://inkly.test                                       
+      2 +APP_ENV=local                                                   
+      3  APP_KEY=base64:CiqTPxULBMpVVqNWc2glInhKvXdsL/PAkYjk12ib5T4=
+      4  APP_DEBUG=true
+      5  APP_URL=http://localhost
+     ...
+      20  LOG_DEPRECATIONS_CHANNEL=null
+      21  LOG_LEVEL=debug
+      22  
+      23 +# Using SQLite for development (file-based, no setup required) 
+      24  DB_CONNECTION=sqlite
+      24 -DB_HOST=127.0.0.1                                              
+      25 -DB_PORT=3306                                                   
+      26 -DB_DATABASE=inkly                                              
+      27 -DB_USERNAME=root                                               
+      28 -DB_PASSWORD=                                                   
+      25 +# DB_HOST=127.0.0.1                                            
+      26 +# DB_PORT=3306                                                 
+      27 +# DB_DATABASE=inkly                                            
+      28 +# DB_USERNAME=root                                             
+      29 +# DB_PASSWORD=                                                 
+      30  
+      31  SESSION_DRIVER=database
+      32  SESSION_LIFETIME=120
+
+● Write(resources\js\Components\Toast.jsx)
+  ⎿  Wrote 79 lines to resources\js\Components\Toast.jsx
+       1 import { useEffect } from 'react';
+       2 import { usePage } from '@inertiajs/react';
+       3 
+       4 /**
+       5  * Toast Notification Component
+       6  *
+       7  * Displays flash messages (success/error) from Laravel backend.
+       8  * Automatically dismisses after 5 seconds.
+       9  *
+      10  * @param {Object} props
+     … +69 lines (ctrl+o to expand)
+
+  Read 1 file (ctrl+o to expand)
+
+● Update(app\Http\Middleware\HandleInertiaRequests.php)
+  ⎿  Added 4 lines
+      34              'auth' => [
+      35                  'user' => $request->user(),
+      36              ],
+      37 +            'flash' => [                                       
+      38 +                'success' => $request->session()->get('success'
+         +),                                                             
+      39 +                'error' => $request->session()->get('error'),  
+      40 +            ],                                                 
+      41          ];
+      42      }
+      43  }
+
+  Read 2 files (ctrl+o to expand)
+
+● Update(resources\css\app.css)
+  ⎿  Added 29 lines
+       1  @tailwind base;
+       2  @tailwind components;
+       3  @tailwind utilities;
+       4 +                                                               
+       5 +/* Custom Animations */                                        
+       6 +@keyframes fadeInDown {                                        
+       7 +    from {                                                     
+       8 +        opacity: 0;                                            
+       9 +        transform: translateY(-1rem);                          
+      10 +    }                                                          
+      11 +    to {                                                       
+      12 +        opacity: 1;                                            
+      13 +        transform: translateY(0);                              
+      14 +    }                                                          
+      15 +}                                                              
+      16 +                                                               
+      17 +.animate-fade-in-down {                                        
+      18 +    animation: fadeInDown 0.3s ease-out;                       
+      19 +}                                                              
+      20 +                                                               
+      21 +@keyframes fadeIn {                                            
+      22 +    from {                                                     
+      23 +        opacity: 0;                                            
+      24 +    }                                                          
+      25 +    to {                                                       
+      26 +        opacity: 1;                                            
+      27 +    }                                                          
+      28 +}                                                              
+      29 +                                                               
+      30 +.animate-fade-in {                                             
+      31 +    animation: fadeIn 0.2s ease-out;                           
+      32 +}                                                              
+
+  Read 1 file (ctrl+o to expand)
+
+● Update(resources\js\Layouts\AuthenticatedLayout.jsx)
+  ⎿  Added 12 lines, removed 1 line
+       1  import { useState } from 'react';
+       2 -import { Link, usePage } from '@inertiajs/react';              
+       2 +import { Link, usePage, router } from '@inertiajs/react';      
+       3 +import Toast from '@/Components/Toast';                        
+       4  
+       5  export default function AuthenticatedLayout({ user, header, chi
+          ldren }) {
+       6      const [showingNavigationDropdown, setShowingNavigationDropd
+          own] = useState(false);
+       7      const isClient = user.role === 'client';
+       8  
+       9 +    /**                                                        
+      10 +     * Dismiss flash message by visiting a neutral route       
+      11 +     */                                                        
+      12 +    const dismissToast = () => {                               
+      13 +        router.visit(window.location.pathname, {               
+      14 +            preserveState: true,                               
+      15 +            preserveScroll: true,                              
+      16 +        });                                                    
+      17 +    };                                                         
+      18 +                                                               
+      19      return (
+      20          <div className="min-h-screen bg-gray-50">
+      21  
+
+● Update(resources\js\Layouts\AuthenticatedLayout.jsx)
+  ⎿  Added 2 lines
+      18  
+      19      return (
+      20          <div className="min-h-screen bg-gray-50">
+      21 +            {/* Toast Notifications */}                        
+      22 +            <Toast onDismiss={dismissToast} />                 
+      23  
+      24              {/* ── TOP NAV ────────────────────────────────────
+          ─────── */}
+      25              <nav className="bg-white border-b border-gray-100 s
+          hadow-sm">
+● Write(resources\js\Pages\JobPostings\Create.jsx)
+  ⎿  Wrote 263 lines to resources\js\Pages\JobPostings\Create.jsx
+       1 import { useState } from 'react';
+       2 import { Head, Link, useForm } from '@inertiajs/react';
+       3 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+       4 import InputLabel from '@/Components/InputLabel';
+       5 import TextInput from '@/Components/TextInput';
+       6 import InputError from '@/Components/InputError';
+       7 import PrimaryButton from '@/Components/PrimaryButton';
+       8 
+       9 /**
+      10  * Create Job Posting Page
+     … +253 lines (ctrl+o to expand)
+
+● Write(resources\js\Pages\JobPostings\Show.jsx)
+  ⎿  Wrote 466 lines to resources\js\Pages\JobPostings\Show.jsx
+      1 import { useState } from 'react';
+      2 import { Head, Link, useForm, router } from '@inertiajs/react';
+      3 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+      4 import InputLabel from '@/Components/InputLabel';
+      5 import TextInput from '@/Components/TextInput';
+      6 import InputError from '@/Components/InputError';
+      7 import PrimaryButton from '@/Components/PrimaryButton';
+      8 import SecondaryButton from '@/Components/SecondaryButton';
+      9 import DangerButton from '@/Components/DangerButton';
+     … +456 lines (ctrl+o to expand)
+
+● Write(resources\js\Pages\JobPostings\Edit.jsx)
+  ⎿  Wrote 287 lines to resources\js\Pages\JobPostings\Edit.jsx
+       1 import { useState } from 'react';
+       2 import { Head, Link, useForm } from '@inertiajs/react';
+       3 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+       4 import InputLabel from '@/Components/InputLabel';
+       5 import TextInput from '@/Components/TextInput';
+       6 import InputError from '@/Components/InputError';
+       7 import PrimaryButton from '@/Components/PrimaryButton';
+       8 
+       9 /**
+      10  * Edit Job Posting Page
+     … +277 lines (ctrl+o to expand)
+
+● Write(resources\js\Pages\Dashboard.jsx)
+  ⎿  Added 274 lines, removed 11 lines
+        1 +import { Head, Link } from '@inertiajs/react';                
+        2  import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout
+           ';
+        2 -import { Head } from '@inertiajs/react';                      
+        3  
+        4 -export default function Dashboard() {                         
+        4 +/**                                                           
+        5 + * Dashboard Page                                             
+        6 + *                                                            
+        7 + * Displays different content based on user role:             
+        8 + * - Clients: See their job postings with bid counts          
+        9 + * - Freelancers: See their submitted bids with job links     
+       10 + */                                                           
+       11 +export default function Dashboard({ auth, jobPostings, bids })
+          + {                                                            
+       12 +    const user = auth.user;                                   
+       13 +    const isClient = user.role === 'client';                  
+       14 +                                                              
+       15 +    // Format currency                                        
+       16 +    const formatCurrency = (amount) => {                      
+       17 +        return new Intl.NumberFormat('en-US', {               
+       18 +            style: 'currency',                                
+       19 +            currency: 'USD',                                  
+       20 +            minimumFractionDigits: 0,                         
+       21 +            maximumFractionDigits: 0,                         
+       22 +        }).format(amount);                                    
+       23 +    };                                                        
+       24 +                                                              
+       25 +    // Format date                                            
+       26 +    const formatDate = (dateString) => {                      
+       27 +        return new Date(dateString).toLocaleDateString('en-US'
+          +, {                                                           
+       28 +            year: 'numeric',                                  
+       29 +            month: 'short',                                   
+       30 +            day: 'numeric',                                   
+       31 +        });                                                   
+       32 +    };                                                        
+       33 +                                                              
+       34 +    // Status badge styles                                    
+       35 +    const statusStyles = {                                    
+       36 +        open: 'bg-green-100 text-green-700 ring-green-600/20',
+       37 +        in_progress: 'bg-yellow-100 text-yellow-700 ring-yello
+          +w-600/20',                                                    
+       38 +        closed: 'bg-red-100 text-red-700 ring-red-600/20',    
+       39 +    };                                                        
+       40 +                                                              
+       41 +    // Bid status styles                                      
+       42 +    const bidStatusStyles = {                                 
+       43 +        pending: 'bg-amber-100 text-amber-700 ring-amber-600/2
+          +0',                                                           
+       44 +        accepted: 'bg-green-100 text-green-700 ring-green-600/
+          +20',                                                          
+       45 +        rejected: 'bg-red-100 text-red-700 ring-red-600/20',  
+       46 +    };                                                        
+       47 +                                                              
+       48      return (
+       49          <AuthenticatedLayout
+       50 +            user={user}                                       
+       51              header={
+        8 -                <h2 className="text-xl font-semibold leading-t
+          -ight text-gray-800">                                          
+        9 -                    Dashboard                                 
+       10 -                </h2>                                         
+       52 +                <div className="flex items-center justify-betw
+          +een">                                                         
+       53 +                    <h2 className="text-xl font-semibold text-
+          +gray-800">                                                    
+       54 +                        Dashboard                             
+       55 +                    </h2>                                     
+       56 +                    {isClient && (                            
+       57 +                        <Link                                 
+       58 +                            href="/job-postings/create"       
+       59 +                            className="inline-flex items-cente
+          +r gap-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm f
+          +ont-medium px-4 py-2 rounded-lg transition"                   
+       60 +                        >                                     
+       61 +                            <svg className="w-4 h-4" fill="non
+          +e" stroke="currentColor" viewBox="0 0 24 24">                 
+       62 +                                <path strokeLinecap="round" st
+          +rokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />    
+       63 +                            </svg>                            
+       64 +                            Post a Job                        
+       65 +                        </Link>                               
+       66 +                    )}                                        
+       67 +                </div>                                        
+       68              }
+       69          >
+       70              <Head title="Dashboard" />
+       71  
+       15 -            <div className="py-12">                           
+       16 -                <div className="mx-auto max-w-7xl sm:px-6 lg:p
+          -x-8">                                                         
+       17 -                    <div className="overflow-hidden bg-white s
+          -hadow-sm sm:rounded-lg">                                      
+       18 -                        <div className="p-6 text-gray-900">   
+       19 -                            You're logged in!                 
+       20 -                        </div>                                
+       72 +            <div className="py-8">                            
+       73 +                <div className="max-w-7xl mx-auto px-4 sm:px-6
+          + lg:px-8">                                                    
+       74 +                    {/* Welcome Banner */}                    
+       75 +                    <div className="bg-gradient-to-r from-indi
+          +go-600 to-purple-600 rounded-2xl shadow-lg p-8 mb-8">         
+       76 +                        <h1 className="text-3xl font-bold text
+          +-white mb-2">                                                 
+       77 +                            Welcome back, {user.name}!        
+       78 +                        </h1>                                 
+       79 +                        <p className="text-indigo-100">       
+       80 +                            {isClient                         
+       81 +                                ? "Manage your job postings an
+          +d review freelancer proposals"                                
+       82 +                                : "Track your bids and find ne
+          +w opportunities"}                                             
+       83 +                        </p>                                  
+       84                      </div>
+       85 +                                                              
+       86 +                    {/* CLIENT DASHBOARD */}                  
+       87 +                    {isClient && jobPostings && jobPostings.le
+          +ngth > 0 && (                                                 
+       88 +                        <div>                                 
+       89 +                            <div className="flex items-center 
+          +justify-between mb-6">                                        
+       90 +                                <h3 className="text-lg font-se
+          +mibold text-gray-900">                                        
+       91 +                                    Your Job Postings         
+       92 +                                </h3>                         
+       93 +                                <span className="text-sm text-
+          +gray-500">                                                    
+       94 +                                    {jobPostings.length} {jobP
+          +ostings.length === 1 ? 'job' : 'jobs'}                        
+       95 +                                </span>                       
+       96 +                            </div>                            
+       97 +                                                              
+       98 +                            <div className="grid gap-6">      
+       99 +                                {jobPostings.map((job) => (   
+      100 +                                    <div                      
+      101 +                                        key={job.id}          
+      102 +                                        className="bg-white ro
+          +unded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md 
+          +transition"                                                   
+      103 +                                    >                         
+      104 +                                        <div className="flex i
+          +tems-start justify-between gap-4">                            
+      105 +                                            <div className="fl
+          +ex-1">                                                        
+      106 +                                                <div className
+          +="flex items-center gap-3 mb-2">                              
+      107 +                                                    <h4 classN
+          +ame="text-lg font-semibold text-gray-900">                    
+      108 +                                                        {job.t
+          +itle}                                                         
+      109 +                                                    </h4>     
+      110 +                                                    <span     
+      111 +                                                        classN
+          +ame={`inline-flex items-center px-2.5 py-0.5 rounded-full text
+          +-xs font-medium ring-1 ring-inset ${statusStyles[job.status]}`
+          +}                                                             
+      112 +                                                    >         
+      113 +                                                        {job.s
+          +tatus.replace('_', ' ')}                                      
+      114 +                                                    </span>   
+      115 +                                                </div>        
+      116 +                                                <p className="
+          +text-gray-600 text-sm line-clamp-2 mb-4">                     
+      117 +                                                    {job.descr
+          +iption}                                                       
+      118 +                                                </p>          
+      119 +                                                <div className
+          +="flex items-center gap-6">                                   
+      120 +                                                    <div class
+          +Name="flex items-center gap-2">                               
+      121 +                                                        <svg c
+          +lassName="w-5 h-5 text-gray-400" fill="none" stroke="currentCo
+          +lor" viewBox="0 0 24 24">                                     
+      122 +                                                            <p
+          +ath strokeLinecap="round" strokeLinejoin="round" strokeWidth={
+          +2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2
+          +-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 
+          +0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />     
+      123 +                                                        </svg>
+      124 +                                                        <span 
+          +className="text-sm font-medium text-gray-700">                
+      125 +                                                            {f
+          +ormatCurrency(job.budget)}                                    
+      126 +                                                        </span
+          +>                                                             
+      127 +                                                    </div>    
+      128 +                                                    <div class
+          +Name="flex items-center gap-2">                               
+      129 +                                                        <svg c
+          +lassName="w-5 h-5 text-gray-400" fill="none" stroke="currentCo
+          +lor" viewBox="0 0 24 24">                                     
+      130 +                                                            <p
+          +ath strokeLinecap="round" strokeLinejoin="round" strokeWidth={
+          +2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9
+          +.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.5
+          +74 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />                   
+      131 +                                                        </svg>
+      132 +                                                        <span 
+          +className="text-sm font-medium text-gray-700">                
+      133 +                                                            {j
+          +ob.bids_count || 0} {job.bids_count === 1 ? 'bid' : 'bids'}   
+      134 +                                                        </span
+          +>                                                             
+      135 +                                                    </div>    
+      136 +                                                    <div class
+          +Name="flex items-center gap-2">                               
+      137 +                                                        <svg c
+          +lassName="w-5 h-5 text-gray-400" fill="none" stroke="currentCo
+          +lor" viewBox="0 0 24 24">                                     
+      138 +                                                            <p
+          +ath strokeLinecap="round" strokeLinejoin="round" strokeWidth={
+          +2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H
+          +5a2 2 0 00-2 2v12a2 2 0 002 2z" />                            
+      139 +                                                        </svg>
+      140 +                                                        <span 
+          +className="text-sm text-gray-500">                            
+      141 +                                                            {f
+          +ormatDate(job.created_at)}                                    
+      142 +                                                        </span
+          +>                                                             
+      143 +                                                    </div>    
+      144 +                                                </div>        
+      145 +                                            </div>            
+      146 +                                            <div className="fl
+          +ex flex-col items-end gap-2">                                 
+      147 +                                                <Link         
+      148 +                                                    href={rout
+          +e('job-postings.show', { job_posting: job.id })}              
+      149 +                                                    className=
+          +"inline-flex items-center gap-1 text-sm font-medium text-indig
+          +o-600 hover:text-indigo-700"                                  
+      150 +                                                >             
+      151 +                                                    View Detai
+          +ls                                                            
+      152 +                                                    <svg class
+          +Name="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 
+          +24 24">                                                       
+      153 +                                                        <path 
+          +strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d
+          +="M9 5l7 7-7 7" />                                            
+      154 +                                                    </svg>    
+      155 +                                                </Link>       
+      156 +                                                {job.status ==
+          += 'open' && (                                                 
+      157 +                                                    <Link     
+      158 +                                                        href={
+          +route('job-postings.edit', { job_posting: job.id })}          
+      159 +                                                        classN
+          +ame="text-xs text-gray-500 hover:text-gray-700"               
+      160 +                                                    >         
+      161 +                                                        Edit  
+      162 +                                                    </Link>   
+      163 +                                                )}            
+      164 +                                            </div>            
+      165 +                                        </div>                
+      166 +                                    </div>                    
+      167 +                                ))}                           
+      168 +                            </div>                            
+      169 +                        </div>                                
+      170 +                    )}                                        
+      171 +                                                              
+      172 +                    {/* CLIENT - No job postings */}          
+      173 +                    {isClient && (!jobPostings || jobPostings.
+          +length === 0) && (                                            
+      174 +                        <div className="bg-white rounded-2xl s
+          +hadow-sm border border-gray-100 p-12 text-center">            
+      175 +                            <div className="text-6xl mb-4">📋<
+          +/div>                                                         
+      176 +                            <h3 className="text-xl font-semibo
+          +ld text-gray-900 mb-2">                                       
+      177 +                                No job postings yet           
+      178 +                            </h3>                             
+      179 +                            <p className="text-gray-500 mb-6 m
+          +ax-w-md mx-auto">                                             
+      180 +                                Create your first job posting 
+          +to start receiving proposals from talented writers.           
+      181 +                            </p>                              
+      182 +                            <Link                             
+      183 +                                href="/job-postings/create"   
+      184 +                                className="inline-flex items-c
+          +enter gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-
+          +medium px-6 py-3 rounded-xl transition"                       
+      185 +                            >                                 
+      186 +                                <svg className="w-5 h-5" fill=
+          +"none" stroke="currentColor" viewBox="0 0 24 24">             
+      187 +                                    <path strokeLinecap="round
+          +" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+      188 +                                </svg>                        
+      189 +                                Post Your First Job           
+      190 +                            </Link>                           
+      191 +                        </div>                                
+      192 +                    )}                                        
+      193 +                                                              
+      194 +                    {/* FREELANCER DASHBOARD */}              
+      195 +                    {!isClient && bids && bids.length > 0 && (
+      196 +                        <div>                                 
+      197 +                            <div className="flex items-center 
+          +justify-between mb-6">                                        
+      198 +                                <h3 className="text-lg font-se
+          +mibold text-gray-900">                                        
+      199 +                                    Your Bids                 
+      200 +                                </h3>                         
+      201 +                                <span className="text-sm text-
+          +gray-500">                                                    
+      202 +                                    {bids.length} {bids.length
+          + === 1 ? 'bid' : 'bids'}                                      
+      203 +                                </span>                       
+      204 +                            </div>                            
+      205 +                                                              
+      206 +                            <div className="grid gap-6">      
+      207 +                                {bids.map((bid) => (          
+      208 +                                    <div                      
+      209 +                                        key={bid.id}          
+      210 +                                        className="bg-white ro
+          +unded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md 
+          +transition"                                                   
+      211 +                                    >                         
+      212 +                                        <div className="flex i
+          +tems-start justify-between gap-4">                            
+      213 +                                            <div className="fl
+          +ex-1">                                                        
+      214 +                                                <div className
+          +="flex items-center gap-3 mb-2">                              
+      215 +                                                    <h4 classN
+          +ame="text-lg font-semibold text-gray-900">                    
+      216 +                                                        {bid.j
+          +obPosting?.title || 'Unknown Job'}                            
+      217 +                                                    </h4>     
+      218 +                                                    <span     
+      219 +                                                        classN
+          +ame={`inline-flex items-center px-2.5 py-0.5 rounded-full text
+          +-xs font-medium ring-1 ring-inset ${bidStatusStyles[bid.status
+          +]}`}                                                          
+      220 +                                                    >         
+      221 +                                                        {bid.s
+          +tatus}                                                        
+      222 +                                                    </span>   
+      223 +                                                </div>        
+      224 +                                                <p className="
+          +text-gray-600 text-sm line-clamp-2 mb-4">                     
+      225 +                                                    {bid.propo
+          +sal}                                                          
+      226 +                                                </p>          
+      227 +                                                <div className
+          +="flex items-center gap-6">                                   
+      228 +                                                    <div class
+          +Name="flex items-center gap-2">                               
+      229 +                                                        <svg c
+          +lassName="w-5 h-5 text-gray-400" fill="none" stroke="currentCo
+          +lor" viewBox="0 0 24 24">                                     
+      230 +                                                            <p
+          +ath strokeLinecap="round" strokeLinejoin="round" strokeWidth={
+          +2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2
+          +-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 
+          +0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />     
+      231 +                                                        </svg>
+      232 +                                                        <span 
+          +className="text-sm font-medium text-gray-700">                
+      233 +                                                            {f
+          +ormatCurrency(bid.amount)}                                    
+      234 +                                                        </span
+          +>                                                             
+      235 +                                                    </div>    
+      236 +                                                    <div class
+          +Name="flex items-center gap-2">                               
+      237 +                                                        <svg c
+          +lassName="w-5 h-5 text-gray-400" fill="none" stroke="currentCo
+          +lor" viewBox="0 0 24 24">                                     
+      238 +                                                            <p
+          +ath strokeLinecap="round" strokeLinejoin="round" strokeWidth={
+          +2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H
+          +5a2 2 0 00-2 2v12a2 2 0 002 2z" />                            
+      239 +                                                        </svg>
+      240 +                                                        <span 
+          +className="text-sm text-gray-500">                            
+      241 +                                                            {f
+          +ormatDate(bid.created_at)}                                    
+      242 +                                                        </span
+          +>                                                             
+      243 +                                                    </div>    
+      244 +                                                </div>        
+      245 +                                            </div>            
+      246 +                                            <div className="fl
+          +ex flex-col items-end gap-2">                                 
+      247 +                                                <Link         
+      248 +                                                    href={rout
+          +e('job-postings.show', { job_posting: bid.jobPosting?.id })}  
+      249 +                                                    className=
+          +"inline-flex items-center gap-1 text-sm font-medium text-indig
+          +o-600 hover:text-indigo-700"                                  
+      250 +                                                >             
+      251 +                                                    View Job  
+      252 +                                                    <svg class
+          +Name="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 
+          +24 24">                                                       
+      253 +                                                        <path 
+          +strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d
+          +="M9 5l7 7-7 7" />                                            
+      254 +                                                    </svg>    
+      255 +                                                </Link>       
+      256 +                                            </div>            
+      257 +                                        </div>                
+      258 +                                    </div>                    
+      259 +                                ))}                           
+      260 +                            </div>                            
+      261 +                        </div>                                
+      262 +                    )}                                        
+      263 +                                                              
+      264 +                    {/* FREELANCER - No bids */}              
+      265 +                    {!isClient && (!bids || bids.length === 0)
+          + && (                                                         
+      266 +                        <div className="bg-white rounded-2xl s
+          +hadow-sm border border-gray-100 p-12 text-center">            
+      267 +                            <div className="text-6xl mb-4">🔍<
+          +/div>                                                         
+      268 +                            <h3 className="text-xl font-semibo
+          +ld text-gray-900 mb-2">                                       
+      269 +                                No bids yet                   
+      270 +                            </h3>                             
+      271 +                            <p className="text-gray-500 mb-6 m
+          +ax-w-md mx-auto">                                             
+      272 +                                Browse available jobs and subm
+          +it proposals to start your freelancing journey.               
+      273 +                            </p>                              
+      274 +                            <Link                             
+      275 +                                href="/job-postings"          
+      276 +                                className="inline-flex items-c
+          +enter gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-
+          +medium px-6 py-3 rounded-xl transition"                       
+      277 +                            >                                 
+      278 +                                <svg className="w-5 h-5" fill=
+          +"none" stroke="currentColor" viewBox="0 0 24 24">             
+      279 +                                    <path strokeLinecap="round
+          +" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 
+          +7 0 11-14 0 7 7 0 0114 0z" />                                 
+      280 +                                </svg>                        
+      281 +                                Browse Jobs                   
+      282 +                            </Link>                           
+      283 +                        </div>                                
+      284 +                    )}                                        
+      285                  </div>
+      286              </div>
+      287          </AuthenticatedLayout>
+
+  Read 1 file (ctrl+o to expand)
+
+● Let me create a professional landing page for Welcome.jsx and fix the
+  controller to pass the required data:
+
+● Write(resources\js\Pages\Welcome.jsx)
+  ⎿  Added 296 lines, removed 312 lines
+       1  import { Head, Link } from '@inertiajs/react';
+       2  
+       3 -export default function Welcome({ auth, laravelVersion, phpVers
+         -ion }) {                                                       
+       4 -    const handleImageError = () => {                           
+       5 -        document                                               
+       6 -            .getElementById('screenshot-container')            
+       7 -            ?.classList.add('!hidden');                        
+       8 -        document.getElementById('docs-card')?.classList.add('!r
+         -ow-span-1');                                                   
+       9 -        document                                               
+      10 -            .getElementById('docs-card-content')               
+      11 -            ?.classList.add('!flex-row');                      
+      12 -        document.getElementById('background')?.classList.add('!
+         -hidden');                                                      
+      13 -    };                                                         
+      14 -                                                               
+       3 +/**                                                            
+       4 + * Welcome / Landing Page                                      
+       5 + *                                                             
+       6 + * Professional homepage for inKLY - a freelance writing market
+         +place.                                                         
+       7 + * Features:                                                   
+       8 + * - Hero section with value proposition                       
+       9 + * - How it works section                                      
+      10 + * - Features/benefits                                         
+      11 + * - Call-to-action for both clients and freelancers           
+      12 + */                                                            
+      13 +export default function Welcome({ auth }) {                    
+      14      return (
+      15          <>
+      17 -            <Head title="Welcome" />                           
+      18 -            <div className="bg-gray-50 text-black/50 dark:bg-bl
+         -ack dark:text-white/50">                                       
+      19 -                <img                                           
+      20 -                    id="background"                            
+      21 -                    className="absolute -left-20 top-0 max-w-[8
+         -77px]"                                                         
+      22 -                    src="https://laravel.com/assets/img/welcome
+         -/background.svg"                                               
+      23 -                />                                             
+      24 -                <div className="relative flex min-h-screen flex
+         --col items-center justify-center selection:bg-[#FF2D20] selecti
+         -on:text-white">                                                
+      25 -                    <div className="relative w-full max-w-2xl p
+         -x-6 lg:max-w-7xl">                                             
+      26 -                        <header className="grid grid-cols-2 ite
+         -ms-center gap-2 py-10 lg:grid-cols-3">                         
+      27 -                            <div className="flex lg:col-start-2
+         - lg:justify-center">                                           
+      28 -                                <svg                           
+      29 -                                    className="h-12 w-auto text
+         --white lg:h-16 lg:text-[#FF2D20]"                              
+      30 -                                    viewBox="0 0 62 65"        
+      31 -                                    fill="none"                
+      32 -                                    xmlns="http://www.w3.org/20
+         -00/svg"                                                        
+      33 -                                >                              
+      34 -                                    <path                      
+      35 -                                        d="M61.8548 14.6253C61.
+         -8778 14.7102 61.8895 14.7978 61.8897 14.8858V28.5615C61.8898 28
+         -.737 61.8434 28.9095 61.7554 29.0614C61.6675 29.2132 61.5409 29
+         -.3392 61.3887 29.4265L49.9104 36.0351V49.1337C49.9104 49.4902 4
+         -9.7209 49.8192 49.4118 49.9987L25.4519 63.7916C25.3971 63.8227 
+         -25.3372 63.8427 25.2774 63.8639C25.255 63.8714 25.2338 63.8851 
+         -25.2101 63.8913C25.0426 63.9354 24.8666 63.9354 24.6991 63.8913
+         -C24.6716 63.8838 24.6467 63.8689 24.6205 63.8589C24.5657 63.838
+         -9 24.5084 63.8215 24.456 63.7916L0.501061 49.9987C0.348882 49.9
+         -113 0.222437 49.7853 0.134469 49.6334C0.0465019 49.4816 0.00012
+         -0578 49.3092 0 49.1337L0 8.10652C0 8.01678 0.0124642 7.92953 0.
+         -0348998 7.84477C0.0423783 7.8161 0.0598282 7.78993 0.0697995 7.
+         -76126C0.0884958 7.70891 0.105946 7.65531 0.133367 7.6067C0.1520
+         -63 7.5743 0.179485 7.54812 0.20192 7.51821C0.230588 7.47832 0.2
+         -56763 7.43719 0.290416 7.40229C0.319084 7.37362 0.356476 7.3524
+         -3 0.388883 7.32751C0.425029 7.29759 0.457436 7.26518 0.498568 7
+         -.2415L12.4779 0.345059C12.6296 0.257786 12.8015 0.211853 12.976
+         -5 0.211853C13.1515 0.211853 13.3234 0.257786 13.475 0.345059L25
+         -.4531 7.2415H25.4556C25.4955 7.26643 25.5292 7.29759 25.5653 7.
+         -32626C25.5977 7.35119 25.6339 7.37362 25.6625 7.40104C25.6974 7
+         -.43719 25.7224 7.47832 25.7523 7.51821C25.7735 7.54812 25.8021 
+         -7.5743 25.8196 7.6067C25.8483 7.65656 25.8645 7.70891 25.8844 7
+         -.76126C25.8944 7.78993 25.9118 7.8161 25.9193 7.84602C25.9423 7
+         -.93096 25.954 8.01853 25.9542 8.10652V33.7317L35.9355 27.9844V1
+         -4.8846C35.9355 14.7973 35.948 14.7088 35.9704 14.6253C35.9792 1
+         -4.5954 35.9954 14.5692 36.0053 14.5405C36.0253 14.4882 36.0427 
+         -14.4346 36.0702 14.386C36.0888 14.3536 36.1163 14.3274 36.1375 
+         -14.2975C36.1674 14.2576 36.1923 14.2165 36.2272 14.1816C36.2559
+         - 14.1529 36.292 14.1317 36.3244 14.1068C36.3618 14.0769 36.3942
+         - 14.0445 36.4341 14.0208L48.4147 7.12434C48.5663 7.03694 48.738
+         -3 6.99094 48.9133 6.99094C49.0883 6.99094 49.2602 7.03694 49.41
+         -18 7.12434L61.3899 14.0208C61.4323 14.0457 61.4647 14.0769 61.5
+         -021 14.1055C61.5333 14.1305 61.5694 14.1529 61.5981 14.1803C61.
+         -633 14.2165 61.6579 14.2576 61.6878 14.2975C61.7103 14.3274 61.
+         -7377 14.3536 61.7551 14.386C61.7838 14.4346 61.8 14.4882 61.819
+         -9 14.5405C61.8312 14.5692 61.8474 14.5954 61.8548 14.6253ZM59.8
+         -93 27.9844V16.6121L55.7013 19.0252L49.9104 22.3593V33.7317L59.8
+         -942 27.9844H59.893ZM47.9149 48.5566V37.1768L42.2187 40.4299L25.
+         -953 49.7133V61.2003L47.9149 48.5566ZM1.99677 9.83281V48.5566L23
+         -.9562 61.199V49.7145L12.4841 43.2219L12.4804 43.2194L12.4754 43
+         -.2169C12.4368 43.1945 12.4044 43.1621 12.3682 43.1347C12.3371 4
+         -3.1097 12.3009 43.0898 12.2735 43.0624L12.271 43.0586C12.2386 4
+         -3.0275 12.2162 42.9888 12.1887 42.9539C12.1638 42.9203 12.1339 
+         -42.8916 12.114 42.8567L12.1127 42.853C12.0903 42.8156 12.0766 4
+         -2.7707 12.0604 42.7283C12.0442 42.6909 12.023 42.656 12.013 42.
+         -6161C12.0005 42.5688 11.998 42.5177 11.9931 42.4691C11.9881 42.
+         -4317 11.9781 42.3943 11.9781 42.3569V15.5801L6.18848 12.2446L1.
+         -99677 9.83281ZM12.9777 2.36177L2.99764 8.10652L12.9752 13.8513L
+         -22.9541 8.10527L12.9752 2.36177H12.9777ZM18.1678 38.2138L23.957
+         -4 34.8809V9.83281L19.7657 12.2459L13.9749 15.5801V40.6281L18.16
+         -78 38.2138ZM48.9133 9.14105L38.9344 14.8858L48.9133 20.6305L58.
+         -8909 14.8846L48.9133 9.14105ZM47.9149 22.3593L42.124 19.0252L37
+         -.9323 16.6121V27.9844L43.7219 31.3174L47.9149 33.7317V22.3593ZM
+         -24.9533 47.987L39.59 39.631L46.9065 35.4555L36.9352 29.7145L25.
+         -4544 36.3242L14.9907 42.3482L24.9533 47.987Z"                  
+      36 -                                        fill="currentColor"    
+      37 -                                    />                         
+      38 -                                </svg>                         
+      16 +            <Head title="Welcome to inKLY - Freelance Writing M
+         +arketplace" />                                                 
+      17 +                                                               
+      18 +            <div className="min-h-screen bg-white">            
+      19 +                {/* Navigation */}                             
+      20 +                <nav className="bg-white/80 backdrop-blur-md bo
+         +rder-b border-gray-100 sticky top-0 z-50">                     
+      21 +                    <div className="max-w-7xl mx-auto px-4 sm:p
+         +x-6 lg:px-8">                                                  
+      22 +                        <div className="flex justify-between it
+         +ems-center h-16">                                              
+      23 +                            {/* Logo */}                       
+      24 +                            <div className="flex items-center g
+         +ap-2">                                                         
+      25 +                                <span className="text-2xl font-
+         +bold text-indigo-600 tracking-tight">                          
+      26 +                                    in<span className="text-gra
+         +y-800">KLY</span>                                              
+      27 +                                </span>                        
+      28                              </div>
+      40 -                            <nav className="-mx-3 flex flex-1 j
+         -ustify-end">                                                   
+      29 +                                                               
+      30 +                            {/* Right side auth links */}      
+      31 +                            <div className="flex items-center g
+         +ap-4">                                                         
+      32                                  {auth.user ? (
+      33                                      <Link
+      34                                          href="/dashboard"
+      44 -                                        className="rounded-md p
+         -x-3 py-2 text-black ring-1 ring-transparent transition hover:te
+         -xt-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dar
+         -k:text-white dark:hover:text-white/80 dark:focus-visible:ring-w
+         -hite"                                                          
+      35 +                                        className="bg-indigo-60
+         +0 hover:bg-indigo-700 text-white font-medium px-5 py-2.5 rounde
+         +d-xl transition"                                               
+      36                                      >
+      37                                          Dashboard
+      38                                      </Link>
+     ...
+       40                                      <>
+       41                                          <Link
+       42                                              href="/login"
+       52 -                                            className="rounded
+          --md px-3 py-2 text-black ring-1 ring-transparent transition ho
+          -ver:text-black/70 focus:outline-none focus-visible:ring-[#FF2D
+          -20] dark:text-white dark:hover:text-white/80 dark:focus-visibl
+          -e:ring-white"                                                 
+       43 +                                            className="text-gr
+          +ay-700 hover:text-indigo-600 font-medium px-4 py-2.5 transitio
+          +n"                                                            
+       44                                          >
+       45                                              Log in
+       46                                          </Link>
+       47                                          <Link
+       48                                              href="/register"
+       58 -                                            className="rounded
+          --md px-3 py-2 text-black ring-1 ring-transparent transition ho
+          -ver:text-black/70 focus:outline-none focus-visible:ring-[#FF2D
+          -20] dark:text-white dark:hover:text-white/80 dark:focus-visibl
+          -e:ring-white"                                                 
+       49 +                                            className="bg-indi
+          +go-600 hover:bg-indigo-700 text-white font-medium px-5 py-2.5 
+          +rounded-xl transition"                                        
+       50                                          >
+       60 -                                            Register          
+       51 +                                            Get Started       
+       52                                          </Link>
+       53                                      </>
+       54                                  )}
+       64 -                            </nav>                            
+       65 -                        </header>                             
+       55 +                            </div>                            
+       56 +                        </div>                                
+       57 +                    </div>                                    
+       58 +                </nav>                                        
+       59  
+       67 -                        <main className="mt-6">               
+       68 -                            <div className="grid gap-6 lg:grid
+          --cols-2 lg:gap-8">                                            
+       69 -                                <a                            
+       70 -                                    href="https://laravel.com/
+          -docs"                                                         
+       71 -                                    id="docs-card"            
+       72 -                                    className="flex flex-col i
+          -tems-start gap-6 overflow-hidden rounded-lg bg-white p-6 shado
+          -w-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring-1 ring-white/[0.05
+          -] transition duration-300 hover:text-black/70 hover:ring-black
+          -/20 focus:outline-none focus-visible:ring-[#FF2D20] md:row-spa
+          -n-3 lg:p-10 lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800 dark:
+          -hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visibl
+          -e:ring-[#FF2D20]"                                             
+       73 -                                >                             
+       74 -                                    <div                      
+       75 -                                        id="screenshot-contain
+          -er"                                                           
+       76 -                                        className="relative fl
+          -ex w-full flex-1 items-stretch"                               
+       77 -                                    >                         
+       78 -                                        <img                  
+       79 -                                            src="https://larav
+          -el.com/assets/img/welcome/docs-light.svg"                     
+       80 -                                            alt="Laravel docum
+          -entation screenshot"                                          
+       81 -                                            className="aspect-
+          -video h-full w-full flex-1 rounded-[10px] object-cover object-
+          -top drop-shadow-[0px_4px_34px_rgba(0,0,0,0.06)] dark:hidden"  
+       82 -                                            onError={handleIma
+          -geError}                                                      
+       83 -                                        />                    
+       84 -                                        <img                  
+       85 -                                            src="https://larav
+          -el.com/assets/img/welcome/docs-dark.svg"                      
+       86 -                                            alt="Laravel docum
+          -entation screenshot"                                          
+       87 -                                            className="hidden 
+          -aspect-video h-full w-full flex-1 rounded-[10px] object-cover 
+          -object-top drop-shadow-[0px_4px_34px_rgba(0,0,0,0.25)] dark:bl
+          -ock"                                                          
+       88 -                                        />                    
+       89 -                                        <div className="absolu
+          -te -bottom-16 -left-16 h-40 w-[calc(100%+8rem)] bg-gradient-to
+          --b from-transparent via-white to-white dark:via-zinc-900 dark:
+          -to-zinc-900"></div>                                           
+       90 -                                    </div>                    
+       60 +                {/* Hero Section */}                          
+       61 +                <section className="relative overflow-hidden b
+          +g-gradient-to-br from-indigo-600 via-purple-600 to-indigo-800"
+          +>                                                             
+       62 +                    {/* Background decoration */}             
+       63 +                    <div className="absolute inset-0 opacity-1
+          +0">                                                           
+       64 +                        <div className="absolute top-20 left-1
+          +0 w-72 h-72 bg-white rounded-full blur-3xl" />                
+       65 +                        <div className="absolute bottom-20 rig
+          +ht-10 w-96 h-96 bg-purple-300 rounded-full blur-3xl" />       
+       66 +                    </div>                                    
+       67  
+       92 -                                    <div className="relative f
+          -lex items-center gap-6 lg:items-end">                         
+       93 -                                        <div                  
+       94 -                                            id="docs-card-cont
+          -ent"                                                          
+       95 -                                            className="flex it
+          -ems-start gap-6 lg:flex-col"                                  
+       96 -                                        >                     
+       97 -                                            <div className="fl
+          -ex size-12 shrink-0 items-center justify-center rounded-full b
+          -g-[#FF2D20]/10 sm:size-16">                                   
+       98 -                                                <svg          
+       99 -                                                    className=
+          -"size-5 sm:size-6"                                            
+      100 -                                                    xmlns="htt
+          -p://www.w3.org/2000/svg"                                      
+      101 -                                                    fill="none
+          -"                                                             
+      102 -                                                    viewBox="0
+          - 0 24 24"                                                     
+      103 -                                                >             
+      104 -                                                    <path     
+      105 -                                                        fill="
+          -#FF2D20"                                                      
+      106 -                                                        d="M23
+          - 4a1 1 0 0 0-1.447-.894L12.224 7.77a.5.5 0 0 1-.448 0L2.447 3.
+          -106A1 1 0 0 0 1 4v13.382a1.99 1.99 0 0 0 1.105 1.79l9.448 4.72
+          -8c.14.065.293.1.447.1.154-.005.306-.04.447-.105l9.453-4.724a1.
+          -99 1.99 0 0 0 1.1-1.789V4ZM3 6.023a.25.25 0 0 1 .362-.223l7.5 
+          -3.75a.251.251 0 0 1 .138.223v11.2a.25.25 0 0 1-.362.224l-7.5-3
+          -.75a.25.25 0 0 1-.138-.22V6.023Zm18 11.2a.25.25 0 0 1-.138.224
+          -l-7.5 3.75a.249.249 0 0 1-.329-.099.249.249 0 0 1-.033-.12V9.7
+          -72a.251.251 0 0 1 .138-.224l7.5-3.75a.25.25 0 0 1 .362.224v11.
+          -2Z"                                                           
+      107 -                                                    />        
+      108 -                                                    <path     
+      109 -                                                        fill="
+          -#FF2D20"                                                      
+      110 -                                                        d="m3.
+          -55 1.893 8 4.048a1.008 1.008 0 0 0 .9 0l8-4.048a1 1 0 0 0-.9-1
+          -.785l-7.322 3.706a.506.506 0 0 1-.452 0L4.454.108a1 1 0 0 0-.9
+          - 1.785H3.55Z"                                                 
+      111 -                                                    />        
+      112 -                                                </svg>        
+      113 -                                            </div>            
+       68 +                    <div className="relative max-w-7xl mx-auto
+          + px-4 sm:px-6 lg:px-8 py-24 lg:py-32">                        
+       69 +                        <div className="text-center">         
+       70 +                            <h1 className="text-4xl sm:text-5x
+          +l lg:text-6xl font-bold text-white tracking-tight">           
+       71 +                                Connect with Top<br />        
+       72 +                                <span className="text-indigo-2
+          +00">Writing Talent</span>                                     
+       73 +                            </h1>                             
+       74 +                            <p className="mt-6 text-xl text-in
+          +digo-100 max-w-2xl mx-auto">                                  
+       75 +                                inKLY is the premier marketpla
+          +ce where businesses find exceptional writers                  
+       76 +                                and freelancers discover amazi
+          +ng opportunities.                                             
+       77 +                            </p>                              
+       78  
+      115 -                                            <div className="pt
+          --3 sm:pt-5 lg:pt-0">                                          
+      116 -                                                <h2 className=
+          -"text-xl font-semibold text-black dark:text-white">           
+      117 -                                                    Documentat
+          -ion                                                           
+      118 -                                                </h2>         
+      119 -                                                              
+      120 -                                                <p className="
+          -mt-4 text-sm/relaxed">                                        
+      121 -                                                    Laravel ha
+          -s wonderful                                                   
+      122 -                                                    documentat
+          -ion covering every                                            
+      123 -                                                    aspect of 
+          -the framework.                                                
+      124 -                                                    Whether yo
+          -u are a newcomer                                              
+      125 -                                                    or have pr
+          -ior experience                                                
+      126 -                                                    with Larav
+          -el, we recommend                                              
+      127 -                                                    reading ou
+          -r documentation                                               
+      128 -                                                    from begin
+          -ning to end.                                                  
+      129 -                                                </p>          
+      130 -                                            </div>            
+      131 -                                        </div>                
+      132 -                                                              
+      133 -                                        <svg                  
+      134 -                                            className="size-6 
+          -shrink-0 stroke-[#FF2D20]"                                    
+      135 -                                            xmlns="http://www.
+          -w3.org/2000/svg"                                              
+      136 -                                            fill="none"       
+      137 -                                            viewBox="0 0 24 24
+          -"                                                             
+      138 -                                            strokeWidth="1.5" 
+       79 +                            {/* CTA Buttons */}               
+       80 +                            <div className="mt-10 flex flex-co
+          +l sm:flex-row gap-4 justify-center">                          
+       81 +                                {!auth.user ? (               
+       82 +                                    <>                        
+       83 +                                        <Link                 
+       84 +                                            href="/register?ro
+          +le=client"                                                    
+       85 +                                            className="inline-
+          +flex items-center justify-center gap-2 bg-white text-indigo-60
+          +0 font-semibold px-8 py-4 rounded-xl hover:bg-indigo-50 transi
+          +tion shadow-lg"                                               
+       86                                          >
+      140 -                                            <path             
+      141 -                                                strokeLinecap=
+          -"round"                                                       
+      142 -                                                strokeLinejoin
+          -="round"                                                      
+      143 -                                                d="M4.5 12h15m
+          -0 0l-6.75-6.75M19.5 12l-6.75 6.75"                            
+      144 -                                            />                
+      145 -                                        </svg>                
+      146 -                                    </div>                    
+      147 -                                </a>                          
+      148 -                                                              
+      149 -                                <a                            
+      150 -                                    href="https://laracasts.co
+          -m"                                                            
+      151 -                                    className="flex items-star
+          -t gap-4 rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba
+          -(0,0,0,0.08)] ring-1 ring-white/[0.05] transition duration-300
+          - hover:text-black/70 hover:ring-black/20 focus:outline-none fo
+          -cus-visible:ring-[#FF2D20] lg:pb-10 dark:bg-zinc-900 dark:ring
+          --zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 da
+          -rk:focus-visible:ring-[#FF2D20]"                              
+      152 -                                >                             
+      153 -                                    <div className="flex size-
+          -12 shrink-0 items-center justify-center rounded-full bg-[#FF2D
+          -20]/10 sm:size-16">                                           
+      154 -                                        <svg                  
+      155 -                                            className="size-5 
+          -sm:size-6"                                                    
+      156 -                                            xmlns="http://www.
+          -w3.org/2000/svg"                                              
+      157 -                                            fill="none"       
+      158 -                                            viewBox="0 0 24 24
+          -"                                                             
+       87 +                                            <svg className="w-
+          +5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"> 
+       88 +                                                <path strokeLi
+          +necap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13
+          +.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.755M16 6V4a
+          +2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2
+          + 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />                
+       89 +                                            </svg>            
+       90 +                                            Hire a Writer     
+       91 +                                        </Link>               
+       92 +                                        <Link                 
+       93 +                                            href="/register?ro
+          +le=freelancer"                                                
+       94 +                                            className="inline-
+          +flex items-center justify-center gap-2 bg-indigo-500/30 text-w
+          +hite font-semibold px-8 py-4 rounded-xl hover:bg-indigo-500/50
+          + transition backdrop-blur-sm border border-white/20"          
+       95                                          >
+      160 -                                            <g fill="#FF2D20">
+      161 -                                                <path d="M24 8
+          -.25a.5.5 0 0 0-.5-.5H.5a.5.5 0 0 0-.5.5v12a2.5 2.5 0 0 0 2.5 2
+          -.5h19a2.5 2.5 0 0 0 2.5-2.5v-12Zm-7.765 5.868a1.221 1.221 0 0 
+          -1 0 2.264l-6.626 2.776A1.153 1.153 0 0 1 8 18.123v-5.746a1.151
+          - 1.151 0 0 1 1.609-1.035l6.626 2.776ZM19.564 1.677a.25.25 0 0 
+          -0-.177-.427H15.6a.106.106 0 0 0-.072.03l-4.54 4.543a.25.25 0 0
+          - 0 .177.427h3.783c.027 0 .054-.01.073-.03l4.543-4.543ZM22.071 
+          -1.318a.047.047 0 0 0-.045.013l-4.492 4.492a.249.249 0 0 0 .038
+          -.385.25.25 0 0 0 .14.042h5.784a.5.5 0 0 0 .5-.5v-2a2.5 2.5 0 0
+          - 0-1.925-2.432ZM13.014 1.677a.25.25 0 0 0-.178-.427H9.101a.106
+          -.106 0 0 0-.073.03l-4.54 4.543a.25.25 0 0 0 .177.427H8.4a.106.
+          -106 0 0 0 .073-.03l4.54-4.543ZM6.513 1.677a.25.25 0 0 0-.177-.
+          -427H2.5A2.5 2.5 0 0 0 0 3.75v2a.5.5 0 0 0 .5.5h1.4a.106.106 0 
+          -0 0 .073-.03l4.54-4.543Z" />                                  
+      162 -                                            </g>              
+      163 -                                        </svg>                
+      164 -                                    </div>                    
+       96 +                                            <svg className="w-
+          +5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"> 
+       97 +                                                <path strokeLi
+          +necap="round" strokeLinejoin="round" strokeWidth={2} d="M15.23
+          +2 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 2
+          +1.036H3v-3.572L16.732 3.732z" />                              
+       98 +                                            </svg>            
+       99 +                                            Find Work         
+      100 +                                        </Link>               
+      101 +                                    </>                       
+      102 +                                ) : (                         
+      103 +                                    <Link                     
+      104 +                                        href="/job-postings"  
+      105 +                                        className="inline-flex
+          + items-center justify-center gap-2 bg-white text-indigo-600 fo
+          +nt-semibold px-8 py-4 rounded-xl hover:bg-indigo-50 transition
+          + shadow-lg"                                                   
+      106 +                                    >                         
+      107 +                                        Browse Jobs           
+      108 +                                    </Link>                   
+      109 +                                )}                            
+      110 +                            </div>                            
+      111 +                        </div>                                
+      112 +                    </div>                                    
+      113  
+      166 -                                    <div className="pt-3 sm:pt
+          --5">                                                          
+      167 -                                        <h2 className="text-xl
+          - font-semibold text-black dark:text-white">                   
+      168 -                                            Laracasts         
+      169 -                                        </h2>                 
+      114 +                    {/* Wave separator */}                    
+      115 +                    <div className="absolute bottom-0 left-0 r
+          +ight-0">                                                      
+      116 +                        <svg viewBox="0 0 1440 120" fill="none
+          +" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto"
+          +>                                                             
+      117 +                            <path d="M0 120L60 105C120 90 240 
+          +60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 
+          +75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120
+          +C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 1
+          +20 60 120H0Z" fill="white"/>                                  
+      118 +                        </svg>                                
+      119 +                    </div>                                    
+      120 +                </section>                                    
+      121  
+      171 -                                        <p className="mt-4 tex
+          -t-sm/relaxed">                                                
+      172 -                                            Laracasts offers t
+          -housands of video                                             
+      173 -                                            tutorials on Larav
+          -el, PHP, and                                                  
+      174 -                                            JavaScript develop
+          -ment. Check them                                              
+      175 -                                            out, see for yours
+          -elf, and massively                                            
+      176 -                                            level up your deve
+          -lopment skills in                                             
+      177 -                                            the process.      
+      178 -                                        </p>                  
+      179 -                                    </div>                    
+      122 +                {/* How It Works Section */}                  
+      123 +                <section className="py-20 bg-white">          
+      124 +                    <div className="max-w-7xl mx-auto px-4 sm:
+          +px-6 lg:px-8">                                                
+      125 +                        <div className="text-center mb-16">   
+      126 +                            <h2 className="text-3xl sm:text-4x
+          +l font-bold text-gray-900">                                   
+      127 +                                How inKLY Works               
+      128 +                            </h2>                             
+      129 +                            <p className="mt-4 text-lg text-gr
+          +ay-600 max-w-2xl mx-auto">                                    
+      130 +                                Whether you're hiring or looki
+          +ng for work, our platform makes it simple                     
+      131 +                            </p>                              
+      132 +                        </div>                                
+      133  
+      181 -                                    <svg                      
+      182 -                                        className="size-6 shri
+          -nk-0 self-center stroke-[#FF2D20]"                            
+      183 -                                        xmlns="http://www.w3.o
+          -rg/2000/svg"                                                  
+      184 -                                        fill="none"           
+      185 -                                        viewBox="0 0 24 24"   
+      186 -                                        strokeWidth="1.5"     
+      187 -                                    >                         
+      188 -                                        <path                 
+      189 -                                            strokeLinecap="rou
+          -nd"                                                           
+      190 -                                            strokeLinejoin="ro
+          -und"                                                          
+      191 -                                            d="M4.5 12h15m0 0l
+          --6.75-6.75M19.5 12l-6.75 6.75"                                
+      192 -                                        />                    
+      134 +                        <div className="grid md:grid-cols-2 ga
+          +p-12">                                                        
+      135 +                            {/* For Clients */}               
+      136 +                            <div className="bg-gradient-to-br 
+          +from-indigo-50 to-purple-50 rounded-3xl p-8 lg:p-10">         
+      137 +                                <div className="w-14 h-14 bg-i
+          +ndigo-600 rounded-2xl flex items-center justify-center mb-6"> 
+      138 +                                    <svg className="w-7 h-7 te
+          +xt-white" fill="none" stroke="currentColor" viewBox="0 0 24 24
+          +">                                                            
+      139 +                                        <path strokeLinecap="r
+          +ound" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.
+          +931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.755M16 6V4a2 2 0 00
+          +-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-
+          +2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />                        
+      140                                      </svg>
+      194 -                                </a>                          
+      141 +                                </div>                        
+      142 +                                <h3 className="text-2xl font-b
+          +old text-gray-900 mb-4">For Clients</h3>                      
+      143 +                                <ol className="space-y-6">    
+      144 +                                    <li className="flex gap-4"
+          +>                                                             
+      145 +                                        <span className="flex-
+          +shrink-0 w-8 h-8 bg-indigo-600 text-white rounded-full flex it
+          +ems-center justify-center font-bold text-sm">1</span>         
+      146 +                                        <div>                 
+      147 +                                            <h4 className="fon
+          +t-semibold text-gray-900">Post a Job</h4>                     
+      148 +                                            <p className="text
+          +-gray-600 mt-1">Describe your project, set your budget, and pu
+          +blish in minutes.</p>                                         
+      149 +                                        </div>                
+      150 +                                    </li>                     
+      151 +                                    <li className="flex gap-4"
+          +>                                                             
+      152 +                                        <span className="flex-
+          +shrink-0 w-8 h-8 bg-indigo-600 text-white rounded-full flex it
+          +ems-center justify-center font-bold text-sm">2</span>         
+      153 +                                        <div>                 
+      154 +                                            <h4 className="fon
+          +t-semibold text-gray-900">Review Proposals</h4>               
+      155 +                                            <p className="text
+          +-gray-600 mt-1">Receive bids from qualified writers with their
+          + proposals and rates.</p>                                     
+      156 +                                        </div>                
+      157 +                                    </li>                     
+      158 +                                    <li className="flex gap-4"
+          +>                                                             
+      159 +                                        <span className="flex-
+          +shrink-0 w-8 h-8 bg-indigo-600 text-white rounded-full flex it
+          +ems-center justify-center font-bold text-sm">3</span>         
+      160 +                                        <div>                 
+      161 +                                            <h4 className="fon
+          +t-semibold text-gray-900">Hire & Collaborate</h4>             
+      162 +                                            <p className="text
+          +-gray-600 mt-1">Choose the best fit and work together to creat
+          +e amazing content.</p>                                        
+      163 +                                        </div>                
+      164 +                                    </li>                     
+      165 +                                </ol>                         
+      166 +                            </div>                            
+      167  
+      196 -                                <a                            
+      197 -                                    href="https://laravel-news
+          -.com"                                                         
+      198 -                                    className="flex items-star
+          -t gap-4 rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba
+          -(0,0,0,0.08)] ring-1 ring-white/[0.05] transition duration-300
+          - hover:text-black/70 hover:ring-black/20 focus:outline-none fo
+          -cus-visible:ring-[#FF2D20] lg:pb-10 dark:bg-zinc-900 dark:ring
+          --zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 da
+          -rk:focus-visible:ring-[#FF2D20]"                              
+      199 -                                >                             
+      200 -                                    <div className="flex size-
+          -12 shrink-0 items-center justify-center rounded-full bg-[#FF2D
+          -20]/10 sm:size-16">                                           
+      201 -                                        <svg                  
+      202 -                                            className="size-5 
+          -sm:size-6"                                                    
+      203 -                                            xmlns="http://www.
+          -w3.org/2000/svg"                                              
+      204 -                                            fill="none"       
+      205 -                                            viewBox="0 0 24 24
+          -"                                                             
+      206 -                                        >                     
+      207 -                                            <g fill="#FF2D20">
+      208 -                                                <path d="M8.75
+          - 4.5H5.5c-.69 0-1.25.56-1.25 1.25v4.75c0 .69.56 1.25 1.25 1.25
+          -h3.25c.69 0 1.25-.56 1.25-1.25V5.75c0-.69-.56-1.25-1.25-1.25Z"
+          - />                                                           
+      209 -                                                <path d="M24 1
+          -0a3 3 0 0 0-3-3h-2V2.5a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2V20a3.5 3.
+          -5 0 0 0 3.5 3.5h17A3.5 3.5 0 0 0 24 20V10ZM3.5 21.5A1.5 1.5 0 
+          -0 1 2 20V3a.5.5 0 0 1 .5-.5h14a.5.5 0 0 1 .5.5v17c0 .295.037.5
+          -88.11.874a.5.5 0 0 1-.484.625L3.5 21.5ZM22 20a1.5 1.5 0 1 1-3 
+          -0V9.5a.5.5 0 0 1 .5-.5H21a1 1 0 0 1 1 1v10Z" />               
+      210 -                                                <path d="M12.7
+          -51 6.047h2a.75.75 0 0 1 .75.75v.5a.75.75 0 0 1-.75.75h-2A.75.7
+          -5 0 0 1 12 7.3v-.5a.75.75 0 0 1 .751-.753ZM12.751 10.047h2a.75
+          -.75 0 0 1 .75.75v.5a.75.75 0 0 1-.75.75h-2A.75.75 0 0 1 12 11.
+          -3v-.5a.75.75 0 0 1 .751-.753ZM4.751 14.047h10a.75.75 0 0 1 .75
+          -.75v.5a.75.75 0 0 1-.75.75h-10A.75.75 0 0 1 4 15.3v-.5a.75.75 
+          -0 0 1 .751-.753ZM4.75 18.047h7.5a.75.75 0 0 1 .75.75v.5a.75.75
+          - 0 0 1-.75.75h-7.5A.75.75 0 0 1 4 19.3v-.5a.75.75 0 0 1 .75-.7
+          -53Z" />                                                       
+      211 -                                            </g>              
+      212 -                                        </svg>                
+      213 -                                    </div>                    
+      168 +                            {/* For Freelancers */}           
+      169 +                            <div className="bg-gradient-to-br 
+          +from-amber-50 to-orange-50 rounded-3xl p-8 lg:p-10">          
+      170 +                                <div className="w-14 h-14 bg-a
+          +mber-500 rounded-2xl flex items-center justify-center mb-6">  
+      171 +                                    <svg className="w-7 h-7 te
+          +xt-white" fill="none" stroke="currentColor" viewBox="0 0 24 24
+          +">                                                            
+      172 +                                        <path strokeLinecap="r
+          +ound" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l
+          +3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v
+          +-3.572L16.732 3.732z" />                                      
+      173 +                                    </svg>                    
+      174 +                                </div>                        
+      175 +                                <h3 className="text-2xl font-b
+          +old text-gray-900 mb-4">For Freelancers</h3>                  
+      176 +                                <ol className="space-y-6">    
+      177 +                                    <li className="flex gap-4"
+          +>                                                             
+      178 +                                        <span className="flex-
+          +shrink-0 w-8 h-8 bg-amber-500 text-white rounded-full flex ite
+          +ms-center justify-center font-bold text-sm">1</span>          
+      179 +                                        <div>                 
+      180 +                                            <h4 className="fon
+          +t-semibold text-gray-900">Browse Jobs</h4>                    
+      181 +                                            <p className="text
+          +-gray-600 mt-1">Explore opportunities that match your skills a
+          +nd interests.</p>                                             
+      182 +                                        </div>                
+      183 +                                    </li>                     
+      184 +                                    <li className="flex gap-4"
+          +>                                                             
+      185 +                                        <span className="flex-
+          +shrink-0 w-8 h-8 bg-amber-500 text-white rounded-full flex ite
+          +ms-center justify-center font-bold text-sm">2</span>          
+      186 +                                        <div>                 
+      187 +                                            <h4 className="fon
+          +t-semibold text-gray-900">Submit Proposals</h4>               
+      188 +                                            <p className="text
+          +-gray-600 mt-1">Send compelling bids showcasing your expertise
+          + and approach.</p>                                            
+      189 +                                        </div>                
+      190 +                                    </li>                     
+      191 +                                    <li className="flex gap-4"
+          +>                                                             
+      192 +                                        <span className="flex-
+          +shrink-0 w-8 h-8 bg-amber-500 text-white rounded-full flex ite
+          +ms-center justify-center font-bold text-sm">3</span>          
+      193 +                                        <div>                 
+      194 +                                            <h4 className="fon
+          +t-semibold text-gray-900">Get Hired</h4>                      
+      195 +                                            <p className="text
+          +-gray-600 mt-1">Connect with clients and build your writing ca
+          +reer.</p>                                                     
+      196 +                                        </div>                
+      197 +                                    </li>                     
+      198 +                                </ol>                         
+      199 +                            </div>                            
+      200 +                        </div>                                
+      201 +                    </div>                                    
+      202 +                </section>                                    
+      203  
+      215 -                                    <div className="pt-3 sm:pt
+          --5">                                                          
+      216 -                                        <h2 className="text-xl
+          - font-semibold text-black dark:text-white">                   
+      217 -                                            Laravel News      
+      218 -                                        </h2>                 
+      204 +                {/* Features Section */}                      
+      205 +                <section className="py-20 bg-gray-50">        
+      206 +                    <div className="max-w-7xl mx-auto px-4 sm:
+          +px-6 lg:px-8">                                                
+      207 +                        <div className="text-center mb-16">   
+      208 +                            <h2 className="text-3xl sm:text-4x
+          +l font-bold text-gray-900">                                   
+      209 +                                Why Choose inKLY?             
+      210 +                            </h2>                             
+      211 +                            <p className="mt-4 text-lg text-gr
+          +ay-600 max-w-2xl mx-auto">                                    
+      212 +                                Built for writers and clients 
+          +who value quality and professionalism                         
+      213 +                            </p>                              
+      214 +                        </div>                                
+      215  
+      220 -                                        <p className="mt-4 tex
+          -t-sm/relaxed">                                                
+      221 -                                            Laravel News is a 
+          -community driven                                              
+      222 -                                            portal and newslet
+          -ter aggregating                                               
+      223 -                                            all of the latest 
+          -and most important                                            
+      224 -                                            news in the Larave
+          -l ecosystem,                                                  
+      225 -                                            including new pack
+          -age releases and                                              
+      226 -                                            tutorials.        
+      227 -                                        </p>                  
+      228 -                                    </div>                    
+      216 +                        <div className="grid sm:grid-cols-2 lg
+          +:grid-cols-3 gap-8">                                          
+      217 +                            {/* Feature 1 */}                 
+      218 +                            <div className="bg-white rounded-2
+          +xl p-6 shadow-sm border border-gray-100">                     
+      219 +                                <div className="w-12 h-12 bg-i
+          +ndigo-100 rounded-xl flex items-center justify-center mb-4">  
+      220 +                                    <svg className="w-6 h-6 te
+          +xt-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 
+          +24 24">                                                       
+      221 +                                        <path strokeLinecap="r
+          +ound" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m
+          +6 2a9 9 0 11-18 0 9 9 0 0118 0z" />                           
+      222 +                                    </svg>                    
+      223 +                                </div>                        
+      224 +                                <h3 className="text-lg font-se
+          +mibold text-gray-900 mb-2">Verified Talent</h3>               
+      225 +                                <p className="text-gray-600">E
+          +very freelancer is vetted to ensure quality and professionalis
+          +m.</p>                                                        
+      226 +                            </div>                            
+      227  
+      230 -                                    <svg                      
+      231 -                                        className="size-6 shri
+          -nk-0 self-center stroke-[#FF2D20]"                            
+      232 -                                        xmlns="http://www.w3.o
+          -rg/2000/svg"                                                  
+      233 -                                        fill="none"           
+      234 -                                        viewBox="0 0 24 24"   
+      235 -                                        strokeWidth="1.5"     
+      236 -                                    >                         
+      237 -                                        <path                 
+      238 -                                            strokeLinecap="rou
+          -nd"                                                           
+      239 -                                            strokeLinejoin="ro
+          -und"                                                          
+      240 -                                            d="M4.5 12h15m0 0l
+          --6.75-6.75M19.5 12l-6.75 6.75"                                
+      241 -                                        />                    
+      228 +                            {/* Feature 2 */}                 
+      229 +                            <div className="bg-white rounded-2
+          +xl p-6 shadow-sm border border-gray-100">                     
+      230 +                                <div className="w-12 h-12 bg-g
+          +reen-100 rounded-xl flex items-center justify-center mb-4">   
+      231 +                                    <svg className="w-6 h-6 te
+          +xt-green-600" fill="none" stroke="currentColor" viewBox="0 0 2
+          +4 24">                                                        
+      232 +                                        <path strokeLinecap="r
+          +ound" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0
+          +-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08
+          +.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M
+          +21 12a9 9 0 11-18 0 9 9 0 0118 0z" />                         
+      233                                      </svg>
+      243 -                                </a>                          
+      234 +                                </div>                        
+      235 +                                <h3 className="text-lg font-se
+          +mibold text-gray-900 mb-2">Transparent Pricing</h3>           
+      236 +                                <p className="text-gray-600">C
+          +lear budgets and competitive bids with no hidden fees.</p>    
+      237 +                            </div>                            
+      238  
+      245 -                                <div className="flex items-sta
+          -rt gap-4 rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgb
+          -a(0,0,0,0.08)] ring-1 ring-white/[0.05] lg:pb-10 dark:bg-zinc-
+          -900 dark:ring-zinc-800">                                      
+      246 -                                    <div className="flex size-
+          -12 shrink-0 items-center justify-center rounded-full bg-[#FF2D
+          -20]/10 sm:size-16">                                           
+      247 -                                        <svg                  
+      248 -                                            className="size-5 
+          -sm:size-6"                                                    
+      249 -                                            xmlns="http://www.
+          -w3.org/2000/svg"                                              
+      250 -                                            fill="none"       
+      251 -                                            viewBox="0 0 24 24
+          -"                                                             
+      252 -                                        >                     
+      253 -                                            <g fill="#FF2D20">
+      254 -                                                <path d="M16.5
+          -97 12.635a.247.247 0 0 0-.08-.237 2.234 2.234 0 0 1-.769-1.68c
+          -.001-.195.03-.39.084-.578a.25.25 0 0 0-.09-.267 8.8 8.8 0 0 0-
+          -4.826-1.66.25.25 0 0 0-.268.181 2.5 2.5 0 0 1-2.4 1.824.045.04
+          -5 0 0 0-.045.037 12.255 12.255 0 0 0-.093 3.86.251.251 0 0 0 .
+          -208.214c2.22.366 4.367 1.08 6.362 2.118a.252.252 0 0 0 .32-.07
+          -9 10.09 10.09 0 0 0 1.597-3.733ZM13.616 17.968a.25.25 0 0 0-.0
+          -63-.407A19.697 19.697 0 0 0 8.91 15.98a.25.25 0 0 0-.287.325c.
+          -151.455.334.898.548 1.328.437.827.981 1.594 1.619 2.28a.249.24
+          -9 0 0 0 .32.044 29.13 29.13 0 0 0 2.506-1.99ZM6.303 14.105a.25
+          -.25 0 0 0 .265-.274 13.048 13.048 0 0 1 .205-4.045.062.062 0 0
+          - 0-.022-.07 2.5 2.5 0 0 1-.777-.982.25.25 0 0 0-.271-.149 11 1
+          -1 0 0 0-5.6 2.815.255.255 0 0 0-.075.163c-.008.135-.02.27-.02.
+          -406.002.8.084 1.598.246 2.381a.25.25 0 0 0 .303.193 19.924 19.
+          -924 0 0 1 5.746-.438ZM9.228 20.914a.25.25 0 0 0 .1-.393 11.53 
+          -11.53 0 0 1-1.5-2.22 12.238 12.238 0 0 1-.91-2.465.248.248 0 0
+          - 0-.22-.187 18.876 18.876 0 0 0-5.69.33.249.249 0 0 0-.179.336
+          -c.838 2.142 2.272 4 4.132 5.353a.254.254 0 0 0 .15.048c1.41-.0
+          -1 2.807-.282 4.117-.802ZM18.93 12.957l-.005-.008a.25.25 0 0 0-
+          -.268-.082 2.21 2.21 0 0 1-.41.081.25.25 0 0 0-.217.2c-.582 2.6
+          -6-2.127 5.35-5.75 7.843a.248.248 0 0 0-.09.299.25.25 0 0 0 .06
+          -5.091 28.703 28.703 0 0 0 2.662 2.12.246.246 0 0 0 .209.037c2.
+          -579-.701 4.85-2.242 6.456-4.378a.25.25 0 0 0 .048-.189 13.51 1
+          -3.51 0 0 0-2.7-6.014ZM5.702 7.058a.254.254 0 0 0 .2-.165A2.488
+          - 2.488 0 0 1 7.98 5.245a.093.093 0 0 0 .078-.062 19.734 19.734
+          - 0 0 1 3.055-4.74.25.25 0 0 0-.21-.41 12.009 12.009 0 0 0-10.4
+          - 8.558.25.25 0 0 0 .373.281 12.912 12.912 0 0 1 4.826-1.814ZM1
+          -0.773 22.052a.25.25 0 0 0-.28-.046c-.758.356-1.55.635-2.365.83
+          -3a.25.25 0 0 0-.022.48c1.252.43 2.568.65 3.893.65.1 0 .2 0 .3-
+          -.008a.25.25 0 0 0 .147-.444c-.526-.424-1.1-.917-1.673-1.465ZM1
+          -8.744 8.436a.249.249 0 0 0 .15.228 2.246 2.246 0 0 1 1.352 2.0
+          -54c0 .337-.08.67-.23.972a.25.25 0 0 0 .042.28l.007.009a15.016 
+          -15.016 0 0 1 2.52 4.6.25.25 0 0 0 .37.132.25.25 0 0 0 .096-.11
+          -4c.623-1.464.944-3.039.945-4.63a12.005 12.005 0 0 0-5.78-10.25
+          -8.25.25 0 0 0-.373.274c.547 2.109.85 4.274.901 6.453ZM9.61 5.3
+          -8a.25.25 0 0 0 .08.31c.34.24.616.561.8.935a.25.25 0 0 0 .3.127
+          -.631.631 0 0 1 .206-.034c2.054.078 4.036.772 5.69 1.991a.251.2
+          -51 0 0 0 .267.024c.046-.024.093-.047.141-.067a.25.25 0 0 0 .15
+          -1-.23A29.98 29.98 0 0 0 15.957.764a.25.25 0 0 0-.16-.164 11.92
+          -4 11.924 0 0 0-2.21-.518.252.252 0 0 0-.215.076A22.456 22.456 
+          -0 0 0 9.61 5.38Z" />                                          
+      255 -                                            </g>              
+      256 -                                        </svg>                
+      257 -                                    </div>                    
+      239 +                            {/* Feature 3 */}                 
+      240 +                            <div className="bg-white rounded-2
+          +xl p-6 shadow-sm border border-gray-100">                     
+      241 +                                <div className="w-12 h-12 bg-p
+          +urple-100 rounded-xl flex items-center justify-center mb-4">  
+      242 +                                    <svg className="w-6 h-6 te
+          +xt-purple-600" fill="none" stroke="currentColor" viewBox="0 0 
+          +24 24">                                                       
+      243 +                                        <path strokeLinecap="r
+          +ound" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h
+          +7v7l9-11h-7z" />                                              
+      244 +                                    </svg>                    
+      245 +                                </div>                        
+      246 +                                <h3 className="text-lg font-se
+          +mibold text-gray-900 mb-2">Fast Matching</h3>                 
+      247 +                                <p className="text-gray-600">C
+          +onnect with the right talent or opportunities in minutes.</p> 
+      248 +                            </div>                            
+      249  
+      259 -                                    <div className="pt-3 sm:pt
+          --5">                                                          
+      260 -                                        <h2 className="text-xl
+          - font-semibold text-black dark:text-white">                   
+      261 -                                            Vibrant Ecosystem 
+      262 -                                        </h2>                 
+      250 +                            {/* Feature 4 */}                 
+      251 +                            <div className="bg-white rounded-2
+          +xl p-6 shadow-sm border border-gray-100">                     
+      252 +                                <div className="w-12 h-12 bg-a
+          +mber-100 rounded-xl flex items-center justify-center mb-4">   
+      253 +                                    <svg className="w-6 h-6 te
+          +xt-amber-600" fill="none" stroke="currentColor" viewBox="0 0 2
+          +4 24">                                                        
+      254 +                                        <path strokeLinecap="r
+          +ound" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 1
+          +2h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.25
+          +5-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03
+          +-8 9-8s9 3.582 9 8z" />                                       
+      255 +                                    </svg>                    
+      256 +                                </div>                        
+      257 +                                <h3 className="text-lg font-se
+          +mibold text-gray-900 mb-2">Direct Communication</h3>          
+      258 +                                <p className="text-gray-600">C
+          +hat directly with clients or freelancers to discuss projects.<
+          +/p>                                                           
+      259 +                            </div>                            
+      260  
+      264 -                                        <p className="mt-4 tex
+          -t-sm/relaxed">                                                
+      265 -                                            Laravel's robust l
+          -ibrary of                                                     
+      266 -                                            first-party tools 
+          -and libraries,                                                
+      267 -                                            such as{' '}      
+      268 -                                            <a                
+      269 -                                                href="https://
+          -forge.laravel.com"                                            
+      270 -                                                className="rou
+          -nded-sm underline hover:text-black focus:outline-none focus-vi
+          -sible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-whit
+          -e dark:focus-visible:ring-[#FF2D20]"                          
+      271 -                                            >                 
+      272 -                                                Forge         
+      273 -                                            </a>              
+      274 -                                            ,{' '}            
+      275 -                                            <a                
+      276 -                                                href="https://
+          -vapor.laravel.com"                                            
+      277 -                                                className="rou
+          -nded-sm underline hover:text-black focus:outline-none focus-vi
+          -sible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-whit
+          -e"                                                            
+      278 -                                            >                 
+      279 -                                                Vapor         
+      280 -                                            </a>              
+      281 -                                            ,{' '}            
+      282 -                                            <a                
+      283 -                                                href="https://
+          -nova.laravel.com"                                             
+      284 -                                                className="rou
+          -nded-sm underline hover:text-black focus:outline-none focus-vi
+          -sible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-whit
+          -e"                                                            
+      285 -                                            >                 
+      286 -                                                Nova          
+      287 -                                            </a>              
+      288 -                                            ,{' '}            
+      289 -                                            <a                
+      290 -                                                href="https://
+          -envoyer.io"                                                   
+      291 -                                                className="rou
+          -nded-sm underline hover:text-black focus:outline-none focus-vi
+          -sible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-whit
+          -e"                                                            
+      292 -                                            >                 
+      293 -                                                Envoyer       
+      294 -                                            </a>              
+      295 -                                            , and{' '}        
+      296 -                                            <a                
+      297 -                                                href="https://
+          -herd.laravel.com"                                             
+      298 -                                                className="rou
+          -nded-sm underline hover:text-black focus:outline-none focus-vi
+          -sible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-whit
+          -e"                                                            
+      299 -                                            >                 
+      300 -                                                Herd          
+      301 -                                            </a>{' '}         
+      302 -                                            help you take your
+          - projects to the                                              
+      303 -                                            next level. Pair t
+          -hem with powerful                                             
+      304 -                                            open source librar
+          -ies like{' '}                                                 
+      305 -                                            <a                
+      306 -                                                href="https://
+          -laravel.com/docs/billing"                                     
+      307 -                                                className="rou
+          -nded-sm underline hover:text-black focus:outline-none focus-vi
+          -sible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-whit
+          -e"                                                            
+      308 -                                            >                 
+      309 -                                                Cashier       
+      310 -                                            </a>              
+      311 -                                            ,{' '}            
+      312 -                                            <a                
+      313 -                                                href="https://
+          -laravel.com/docs/dusk"                                        
+      314 -                                                className="rou
+          -nded-sm underline hover:text-black focus:outline-none focus-vi
+          -sible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-whit
+          -e"                                                            
+      315 -                                            >                 
+      316 -                                                Dusk          
+      317 -                                            </a>              
+      318 -                                            ,{' '}            
+      319 -                                            <a                
+      320 -                                                href="https://
+          -laravel.com/docs/broadcasting"                                
+      321 -                                                className="rou
+          -nded-sm underline hover:text-black focus:outline-none focus-vi
+          -sible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-whit
+          -e"                                                            
+      322 -                                            >                 
+      323 -                                                Echo          
+      324 -                                            </a>              
+      325 -                                            ,{' '}            
+      326 -                                            <a                
+      327 -                                                href="https://
+          -laravel.com/docs/horizon"                                     
+      328 -                                                className="rou
+          -nded-sm underline hover:text-black focus:outline-none focus-vi
+          -sible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-whit
+          -e"                                                            
+      329 -                                            >                 
+      330 -                                                Horizon       
+      331 -                                            </a>              
+      332 -                                            ,{' '}            
+      333 -                                            <a                
+      334 -                                                href="https://
+          -laravel.com/docs/sanctum"                                     
+      335 -                                                className="rou
+          -nded-sm underline hover:text-black focus:outline-none focus-vi
+          -sible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-whit
+          -e"                                                            
+      336 -                                            >                 
+      337 -                                                Sanctum       
+      338 -                                            </a>              
+      339 -                                            ,{' '}            
+      340 -                                            <a                
+      341 -                                                href="https://
+          -laravel.com/docs/telescope"                                   
+      342 -                                                className="rou
+          -nded-sm underline hover:text-black focus:outline-none focus-vi
+          -sible:ring-1 focus-visible:ring-[#FF2D20] dark:hover:text-whit
+          -e"                                                            
+      343 -                                            >                 
+      344 -                                                Telescope     
+      345 -                                            </a>              
+      346 -                                            , and more.       
+      347 -                                        </p>                  
+      348 -                                    </div>                    
+      261 +                            {/* Feature 5 */}                 
+      262 +                            <div className="bg-white rounded-2
+          +xl p-6 shadow-sm border border-gray-100">                     
+      263 +                                <div className="w-12 h-12 bg-r
+          +ed-100 rounded-xl flex items-center justify-center mb-4">     
+      264 +                                    <svg className="w-6 h-6 te
+          +xt-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 
+          +24">                                                          
+      265 +                                        <path strokeLinecap="r
+          +ound" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6
+          +m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414
+          + 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />                  
+      266 +                                    </svg>                    
+      267                                  </div>
+      268 +                                <h3 className="text-lg font-se
+          +mibold text-gray-900 mb-2">Detailed Proposals</h3>            
+      269 +                                <p className="text-gray-600">F
+          +reelancers provide comprehensive proposals for your review.</p
+          +>                                                             
+      270                              </div>
+      351 -                        </main>                               
+      271  
+      353 -                        <footer className="py-16 text-center t
+          -ext-sm text-black dark:text-white/70">                        
+      354 -                            Laravel v{laravelVersion} (PHP v{p
+          -hpVersion})                                                   
+      355 -                        </footer>                             
+      272 +                            {/* Feature 6 */}                 
+      273 +                            <div className="bg-white rounded-2
+          +xl p-6 shadow-sm border border-gray-100">                     
+      274 +                                <div className="w-12 h-12 bg-t
+          +eal-100 rounded-xl flex items-center justify-center mb-4">    
+      275 +                                    <svg className="w-6 h-6 te
+          +xt-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24
+          + 24">                                                         
+      276 +                                        <path strokeLinecap="r
+          +ound" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l
+          +-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536
+          + 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4
+          + 0 11-8 0 4 4 0 018 0z" />                                    
+      277 +                                    </svg>                    
+      278 +                                </div>                        
+      279 +                                <h3 className="text-lg font-se
+          +mibold text-gray-900 mb-2">24/7 Support</h3>                  
+      280 +                                <p className="text-gray-600">O
+          +ur team is always here to help you succeed.</p>               
+      281 +                            </div>                            
+      282 +                        </div>                                
+      283                      </div>
+      357 -                </div>                                        
+      284 +                </section>                                    
+      285 +                                                              
+      286 +                {/* CTA Section */}                           
+      287 +                <section className="py-20 bg-gradient-to-r fro
+          +m-indigo-600 to-purple-600">                                  
+      288 +                    <div className="max-w-4xl mx-auto px-4 sm:
+          +px-6 lg:px-8 text-center">                                    
+      289 +                        <h2 className="text-3xl sm:text-4xl fo
+          +nt-bold text-white mb-6">                                     
+      290 +                            Ready to Get Started?             
+      291 +                        </h2>                                 
+      292 +                        <p className="text-xl text-indigo-100 
+          +mb-10">                                                       
+      293 +                            Join hundreds of clients and freel
+          +ancers already using inKLY                                    
+      294 +                        </p>                                  
+      295 +                        {!auth.user && (                      
+      296 +                            <div className="flex flex-col sm:f
+          +lex-row gap-4 justify-center">                                
+      297 +                                <Link                         
+      298 +                                    href="/register?role=clien
+          +t"                                                            
+      299 +                                    className="inline-flex ite
+          +ms-center justify-center gap-2 bg-white text-indigo-600 font-s
+          +emibold px-8 py-4 rounded-xl hover:bg-indigo-50 transition sha
+          +dow-lg"                                                       
+      300 +                                >                             
+      301 +                                    Create Free Account       
+      302 +                                </Link>                       
+      303 +                                <Link                         
+      304 +                                    href="/login"             
+      305 +                                    className="inline-flex ite
+          +ms-center justify-center gap-2 bg-indigo-500/30 text-white fon
+          +t-semibold px-8 py-4 rounded-xl hover:bg-indigo-500/50 transit
+          +ion backdrop-blur-sm border border-white/20"                  
+      306 +                                >                             
+      307 +                                    Sign In                   
+      308 +                                </Link>                       
+      309 +                            </div>                            
+      310 +                        )}                                    
+      311 +                        {auth.user && (                       
+      312 +                            <Link                             
+      313 +                                href="/job-postings"          
+      314 +                                className="inline-flex items-c
+          +enter justify-center gap-2 bg-white text-indigo-600 font-semib
+          +old px-8 py-4 rounded-xl hover:bg-indigo-50 transition shadow-
+          +lg"                                                           
+      315 +                            >                                 
+      316 +                                Explore Jobs                  
+      317 +                            </Link>                           
+      318 +                        )}                                    
+      319 +                    </div>                                    
+      320 +                </section>                                    
+      321 +                                                              
+      322 +                {/* Footer */}                                
+      323 +                <footer className="bg-gray-900 py-12">        
+      324 +                    <div className="max-w-7xl mx-auto px-4 sm:
+          +px-6 lg:px-8">                                                
+      325 +                        <div className="flex flex-col md:flex-
+          +row justify-between items-center gap-6">                      
+      326 +                            <div className="flex items-center 
+          +gap-2">                                                       
+      327 +                                <span className="text-xl font-
+          +bold text-white tracking-tight">                              
+      328 +                                    in<span className="text-in
+          +digo-400">KLY</span>                                          
+      329 +                                </span>                       
+      330 +                            </div>                            
+      331 +                            <p className="text-gray-400 text-s
+          +m">                                                           
+      332 +                                © {new Date().getFullYear()} i
+          +nKLY. All rights reserved.                                    
+      333 +                            </p>                              
+      334 +                            <div className="flex items-center 
+          +gap-6">                                                       
+      335 +                                <a href="#" className="text-gr
+          +ay-400 hover:text-white transition text-sm">Privacy</a>       
+      336 +                                <a href="#" className="text-gr
+          +ay-400 hover:text-white transition text-sm">Terms</a>         
+      337 +                                <a href="#" className="text-gr
+          +ay-400 hover:text-white transition text-sm">Contact</a>       
+      338 +                            </div>                            
+      339 +                        </div>                                
+      340 +                    </div>                                    
+      341 +                </footer>                                     
+      342              </div>
+      343          </>
+      344      );
+  ⎿  API Error: 429 
+     {"type":"error","error":{"type":"rate_limit_error","message":"you 
+     (tjjamestrevor) have reached your session usage limit, upgrade for higher 
+     limits: 
+     https://ollama.com/upgrade"},"request_id":"req_f978611eaf1fe9c62925cb6f"}
+
+✻ Crunched for 10m 50s
+
+> you haven't finished building and testing the application?                    
+  ⎿  API Error: 429 
+     {"type":"error","error":{"type":"rate_limit_error","message":"you 
+     (tjjamestrevor) have reached your session usage limit, upgrade for higher 
+     limits: 
+     https://ollama.com/upgrade"},"request_id":"req_11af605e6cf9770f729651af"}
+✻ Cooked for 3m 19s

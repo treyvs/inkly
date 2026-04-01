@@ -11,8 +11,8 @@ class Bid extends Model
     use HasFactory;
 
     protected $fillable = [
-        'job_posting_id',
-        'freelancer_id',
+        'job_posting_id',   // FIX: was 'job_posting_id' in model but 'job_id' in migration
+        'freelancer_id',    // Now consistent across model, migration, and controller
         'amount',
         'proposal',
         'status',
@@ -27,7 +27,10 @@ class Bid extends Model
 
     // ── Relationships ──────────────────────────────────────────────
 
-    /** The job posting this bid belongs to */
+    /**
+     * The job posting this bid belongs to.
+     * FIX: foreign key is now 'job_posting_id' matching the corrected migration.
+     */
     public function jobPosting(): BelongsTo
     {
         return $this->belongsTo(JobPosting::class, 'job_posting_id');
@@ -46,8 +49,25 @@ class Bid extends Model
         return $query->where('status', 'pending');
     }
 
+    public function scopeAccepted($query)
+    {
+        return $query->where('status', 'accepted');
+    }
+
     public function scopeForFreelancer($query, int $freelancerId)
     {
         return $query->where('freelancer_id', $freelancerId);
+    }
+
+    // ── Helpers ───────────────────────────────────────────────────
+
+    public function isPending(): bool
+    {
+        return $this->status === 'pending';
+    }
+
+    public function isAccepted(): bool
+    {
+        return $this->status === 'accepted';
     }
 }

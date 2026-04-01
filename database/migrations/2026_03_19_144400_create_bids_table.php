@@ -10,20 +10,28 @@ return new class extends Migration
     {
         Schema::create('bids', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('job_id')
-                  ->constrained('jobs')
+
+            // FIX: was foreignId('job_id')->constrained('jobs')
+            // which pointed to Laravel's internal queue jobs table.
+            // Now correctly references the job_postings table.
+            $table->foreignId('job_posting_id')
+                  ->constrained('job_postings')
                   ->onDelete('cascade');
+
             $table->foreignId('freelancer_id')
                   ->constrained('users')
                   ->onDelete('cascade');
+
             $table->decimal('amount', 10, 2);
             $table->text('proposal');
+
             $table->enum('status', ['pending', 'accepted', 'rejected'])
                   ->default('pending');
+
             $table->timestamps();
 
-            // A freelancer can only bid once per job
-            $table->unique(['job_id', 'freelancer_id']);
+            // A freelancer can only bid once per job posting
+            $table->unique(['job_posting_id', 'freelancer_id']);
         });
     }
 
